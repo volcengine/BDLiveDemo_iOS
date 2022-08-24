@@ -18,7 +18,7 @@
 
 #import "ViewController.h"
 
-#import <BDLive/BDLLiveEngine.h>
+#import <BDLive/BDLive.h>
 
 @interface ViewController ()
 

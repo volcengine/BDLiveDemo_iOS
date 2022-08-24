@@ -17,9 +17,7 @@
 
 #import "ViewController.h"
 #import <Masonry/Masonry.h>
-#import <BDLive/BDLLiveEngine.h>
-#import <BDLive/BDLPlayerView.h>
-#import <BDLive/BDLPlayerFullScreenViewController.h>
+#import <BDLive/BDLive.h>
 
 @interface ViewController () <BDLPlayerViewDelegate>
 

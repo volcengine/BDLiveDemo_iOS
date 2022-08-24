@@ -17,11 +17,11 @@
 
 #import "ViewController.h"
 #import <Masonry/Masonry.h>
-#import <BDLive/BDLLiveEngine.h>
-#import <BDLive/BDLLivePullViewController+BDLConfig.h>
+#import <BDLive/BDLive.h>
 
 @interface ViewController () <BDLLivePullViewControllerDelegate>
 
+@property (nonatomic, weak) BDLLivePullViewController *livePullViewController;
 @property (nonatomic, weak) IBOutlet UITextField *activityIdTF;
 @property (nonatomic, weak) IBOutlet UITextField *tokenTF;
 @property (nonatomic, weak) IBOutlet UISegmentedControl *segmentControl;
@@ -55,6 +55,7 @@
     
     [[BDLLiveEngine sharedInstance] joinLiveRoomWithActivity:activity success:^{
         BDLLivePullViewController *vc = [[BDLLiveEngine sharedInstance] getLivePullViewController];
+        self.livePullViewController = vc;
         [self configLivePullVC:vc];
         [self showLivePullVC:vc];
     } failure:^(NSError * _Nonnull error) {
@@ -63,50 +64,119 @@
     
 }
 
+- (void)onShareButtonClick:(UIButton *)button {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"自定义分享实现" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"知道了" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            
+    }]];
+    [self.livePullViewController presentViewController:alert animated:YES completion:^{
+            
+    }];
+}
+
+- (void)onTopButtonClick:(UIButton *)button {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"点击了顶部View" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"知道了" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            
+    }]];
+    [self.livePullViewController presentViewController:alert animated:YES completion:^{
+            
+    }];
+}
+
 - (void)configLivePullVC:(BDLLivePullViewController *)vc {
-    vc.config.customizePageAdView = ^__kindof BDLBaseView * _Nullable(BDLLivePullViewController * _Nonnull viewController, BDLPageAdView * _Nonnull view) {
-        if (viewController.isPortrait) {
-            return view;
+    // 自定义关闭按钮
+    vc.config.customizeCloseButton = ^__kindof UIButton * _Nullable(BDLLivePullViewController * _Nonnull viewController, UIButton * _Nonnull button) {
+        if (!viewController.isPortrait) {
+            // 修改图片
+            [button setImage:[UIImage imageNamed:@"leftArrow"] forState:UIControlStateNormal];
         }
-        // hide adView when landscape
+        return button;
+    };
+    
+    // 隐藏标题
+    vc.config.customizeTitleLabel = ^__kindof UILabel * _Nullable(BDLLivePullViewController * _Nonnull viewController, UILabel * _Nonnull label) {
         return nil;
     };
     
+    // 隐藏企业账号的view
+    vc.config.customizeAccountView = ^__kindof BDLBaseView * _Nullable(BDLLivePullViewController * _Nonnull viewController, BDLBusinessAccountView * _Nonnull view) {
+        return nil;
+    };
+    
+    // 自定义分享按钮，需要在控制台配置分享按钮为显示 （营销互动/分享海报/直播分享）
+    vc.config.customizeShareButton = ^__kindof UIButton * _Nullable(BDLLivePullViewController * _Nonnull viewController, UIButton * _Nonnull button) {
+        // 修改图片
+        // [button setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+        // 修改背景颜色
+        button.backgroundColor = [UIColor grayColor];
+    
+        // 移除默认的分享实现
+         NSArray *actionArray = [button actionsForTarget:viewController forControlEvent:UIControlEventTouchUpInside];
+         for (NSString *action in actionArray) {
+             [button removeTarget:viewController action:NSSelectorFromString(action) forControlEvents:UIControlEventTouchUpInside];
+         }
+        // 添加自定义分享的实现
+        [button addTarget:self action:@selector(onShareButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        return button;
+    };
+    
+    // 自定义页中广告
+    vc.config.customizePageAdView = ^__kindof BDLBaseView * _Nullable(BDLLivePullViewController * _Nonnull viewController, BDLPageAdView * _Nonnull view) {
+        // 隐藏横屏时候的页中广告
+        if (viewController.isPortrait) {
+            return view;
+        }
+        return nil;
+    };
+
+    // 自定义布局/添加自己的view
+    // NOTE: 因为有视频全屏/非全屏的切换，这里不支持自定义 playerContainerView/playerView 的位置
     vc.config.customizeViewConstraints = ^(BDLLivePullViewController * _Nonnull viewController) {
-        UIView *testView = [[UIView alloc] init];
+        // 只在横屏模式下自定义，竖屏不做处理
         if (viewController.isPortrait) {
-            if (viewController.upperAdView) {
-                [viewController.view insertSubview:testView belowSubview:viewController.upperAdView];
-            }
-            else {
-                [viewController.view addSubview:testView];
-            }
+            return;
         }
-        else {
-            if (viewController.upperAdView) {
-                [viewController.contentView insertSubview:testView belowSubview:viewController.upperAdView];
-            }
-            else {
-                [viewController.contentView addSubview:testView];
-            }
-        }
-        testView.backgroundColor = [UIColor redColor];
+        // 顶部居中添加view
+        UIButton *topButton = [[UIButton alloc] init];
+        topButton.layer.cornerRadius = 15;
+        topButton.backgroundColor = [[UIColor cyanColor] colorWithAlphaComponent:0.5];
+        [topButton addTarget:self action:@selector(onTopButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+
+        // 视频下方添加自定义view
+        UIView *middleView = [[UIView alloc] init];
+        middleView.backgroundColor = [UIColor redColor];
+        middleView.alpha = 0.2;
         
-        if (viewController.isPortrait) {
-            [testView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.bottom.equalTo(viewController.commentView.mas_top).offset(-10);
-                make.left.right.equalTo(viewController.view).inset(14);
-                make.height.equalTo(@60);
-            }];
+        // 置于浮窗广告之下，避免浮窗广告被自定义view遮挡
+        if (viewController.upperAdView) {
+            [viewController.contentView insertSubview:topButton belowSubview:viewController.upperAdView];
+            [viewController.contentView insertSubview:middleView belowSubview:viewController.upperAdView];
         }
         else {
-            if (!viewController.pageAdView) {
-                return;
-            }
-            [testView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.edges.equalTo(viewController.pageAdView);
-            }];
+            [viewController.contentView addSubview:topButton];
+            [viewController.contentView addSubview:middleView];
         }
+       
+        [topButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.equalTo(@200);
+            make.height.equalTo(@30);
+            make.centerY.equalTo(viewController.closeButton);
+            make.centerX.equalTo(viewController.view);
+        }];
+    
+        [middleView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(viewController.playerContainerView.mas_bottom).offset(10);
+            make.left.right.equalTo(viewController.contentView);
+            make.height.equalTo(@30);
+        }];
+        
+        // 调整 直播间描述的位置
+        [viewController.scrollTextView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(middleView.mas_bottom).offset(10);
+            make.left.right.equalTo(viewController.contentView);
+            make.height.equalTo(@17);
+        }];
     };
 }
 

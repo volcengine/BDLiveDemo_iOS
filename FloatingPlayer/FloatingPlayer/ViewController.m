@@ -18,10 +18,7 @@
 #import "ViewController.h"
 #import <Masonry/Masonry.h>
 #import <YYCategories/YYCategories.h>
-#import <BDLive/BDLLiveEngine.h>
-#import <BDLive/BDLFloatingPlayer.h>
-#import <BDLive/BDLLivePullViewController.h>
-#import <BDLive/BDLLivePullViewController+BDLConfig.h>
+#import <BDLive/BDLive.h>
 
 @interface ViewController () <BDLLivePullViewControllerDelegate>
 
