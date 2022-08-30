@@ -35,7 +35,7 @@
     TTSDKConfiguration *configuration = [TTSDKConfiguration defaultConfigurationWithAppID:@"<#AppID#>"];
     configuration.licenseFilePath = [[NSBundle mainBundle] pathForResource:@"<#licenseFilePath#>" ofType:@"lic"];
     configuration.bundleID = @"<#bundleID#>";
-    configuration.appName = @"PullDemo";
+    configuration.appName = @"HybridViewer";
     configuration.channel = @"App Store";
     [TTSDKManager startWithConfiguration:configuration];
 }
