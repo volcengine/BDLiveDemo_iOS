@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSCalendarsUsageDescription</key>
+	<string>用于直播预约提醒能力</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>App 需要获取您的麦克风权限，用于采集直播声音</string>
+	<key>NSCameraUsageDescription</key>
+	<string>App 需要获取您的相机权限，用于采集直播视频</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>App 需要获取您的相册权限，用于将本地图片、视频合入直播流</string>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<false/>
+		<key>UISceneConfigurations</key>
+		<dict>
+			<key>UIWindowSceneSessionRoleApplication</key>
+			<array>
+				<dict>
+					<key>UISceneConfigurationName</key>
+					<string>Default Configuration</string>
+					<key>UISceneDelegateClassName</key>
+					<string>SceneDelegate</string>
+					<key>UISceneStoryboardFile</key>
+					<string>Main</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
+</dict>
+</plist>

@@ -6,6 +6,8 @@
 - `Player`: 演示了如何接入播放器组件。
 - `FloatingPlayer`: 演示了如何接入支持画中画功能的播放器组件。在这个 Demo 中，观众可以不进入直播间页面就查看画中画效果。
 - `HybridViewer`: 演示了如何使用观播 SDK 配合您的业务 UI，搭建定制化的直播间。
+- `LiveStreamingAndViewer`: 演示了如何通过少量代码接入观播 SDK 和开播 SDK。
+- `LiveStreaming`: 演示了如何通过少量代码接入开播 SDK。
 本文以 SimpleViewer 为例，介绍如何快速编译并运行 Demo。
 
 # 前提条件

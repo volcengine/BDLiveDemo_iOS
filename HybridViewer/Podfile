@@ -9,6 +9,6 @@ target 'HybridViewer' do
   use_frameworks!
 
   pod 'Masonry'
-  pod'BDLive', '1.13.1'
+  pod'BDLive', '1.14.0'
 
 end
