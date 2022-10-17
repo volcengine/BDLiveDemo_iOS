@@ -92,9 +92,6 @@
         make.width.equalTo(@100);
         make.height.equalTo(@40);
     }];
-    
-    self.firstInputTextField.text = @"1743097783603240";
-    self.secondInputTextField.text = @"5HNQmN+8MeWSvfViCWALWoezCmja10oVCoE1B7jVIujRnBUU378QFXNNnP8nzNx7";
 }
 
 - (void)onEntranceButtonClick {

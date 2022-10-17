@@ -36,11 +36,15 @@
 
 - (void)initTTSDK {
     TTSDKConfiguration *configuration = [TTSDKConfiguration defaultConfigurationWithAppID:@"<#AppID#>"];
-    configuration.licenseFilePath = [[NSBundle mainBundle] pathForResource:@"<#licenseFilePath#>" ofType:@"lic"];
     configuration.bundleID = @"<#bundleID#>";
-    config.appName = @"FloatingPlayer";
-    config.channel = @"App Store";
-    [TTSDKManager startWithConfiguration:config];
+    configuration.appName = @"FloatingPlayer";
+    configuration.channel = @"App Store";
+    // 点播
+    configuration.licenseFilePath = [[NSBundle mainBundle] pathForResource:@"<#licenseFilePath#>" ofType:@"lic"];
+    [TTSDKManager startWithConfiguration:configuration];
+    // 直播
+    configuration.licenseFilePath = [[NSBundle mainBundle] pathForResource:@"<#licenseFilePath#>" ofType:@"lic"];
+    [TTSDKManager startWithConfiguration:configuration];
 }
 
 #pragma mark - UISceneSession lifecycle

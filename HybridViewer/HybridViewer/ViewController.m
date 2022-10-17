@@ -176,7 +176,7 @@
         }];
         
         // 调整 直播间描述的位置
-        [viewController.scrollTextView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        [viewController.liveDescriptionView mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(middleView.mas_bottom).offset(10);
             make.left.right.equalTo(viewController.contentView);
             make.height.equalTo(@17);

@@ -8,6 +8,6 @@ target 'Player' do
   use_frameworks!
 
   # Pods for Player
-  pod 'BDLive', '1.14.1'
+  pod 'BDLive', '1.15.0'
 
 end

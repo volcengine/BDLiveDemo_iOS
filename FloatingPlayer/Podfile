@@ -9,6 +9,6 @@ target 'FloatingPlayer' do
 
   # Pods for FloatingPlayer
   pod 'YYCategories'
-  pod 'BDLive', '1.14.1'
+  pod 'BDLive', '1.15.0'
 
 end

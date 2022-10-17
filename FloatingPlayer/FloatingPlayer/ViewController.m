@@ -88,8 +88,8 @@
 - (void)configLivePullVC {
     @weakify(self);
     self.livePullVC.config.customizeMenuBarView = ^(BDLLivePullViewController * _Nonnull viewController, BDLMenuBarView * _Nonnull view) {
-        view.customizeCardView = ^__kindof BDLBaseView *_Nullable(BDLCardView *_Nonnull view) {
-            view.viewTappedBlock = ^(NSURL *_Nullable url) {
+        view.customizeCardView = ^__kindof BDLBaseView * _Nullable(BDLMenuBarView * _Nonnull view, BDLCardView * _Nonnull cardView) {
+            cardView.viewTappedBlock = ^(NSString * _Nullable urlStr) {
                 @strongify(self);
                 if (!self) {
                     return;
@@ -101,7 +101,7 @@
     };
     
     self.livePullVC.config.customizeFloatingCardView = ^__kindof BDLBaseView * _Nullable(BDLLivePullViewController * _Nonnull viewController, BDLFloatingCardView * _Nonnull view) {
-        view.viewTappedBlock = ^(NSURL * _Nullable url, BOOL enableFloating) {
+        view.viewTappedBlock = ^(NSString * _Nullable urlStr, BOOL enableFloating) {
             @strongify(self);
             if (!self) {
                 return;
@@ -112,7 +112,7 @@
     };
     
     self.livePullVC.config.customizeUpperAdView = ^__kindof BDLBaseView * _Nullable(BDLLivePullViewController * _Nonnull viewController, BDLUpperAdView * _Nonnull view) {
-        view.viewTappedBlock = ^(NSURL *_Nullable url) {
+        view.viewTappedBlock = ^(NSString * _Nullable urlStr) {
             @strongify(self);
             if (!self) {
                 return;

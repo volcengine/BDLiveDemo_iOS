@@ -37,10 +37,14 @@
 
 - (void)initTTSDK {
     TTSDKConfiguration *configuration = [TTSDKConfiguration defaultConfigurationWithAppID:@"<#AppID#>"];
-    configuration.licenseFilePath = [[NSBundle mainBundle] pathForResource:@"<#licenseFilePath#>" ofType:@"lic"];
     configuration.bundleID = @"<#bundleID#>";
     configuration.appName = @"HybridViewer";
     configuration.channel = @"App Store";
+    // 点播
+    configuration.licenseFilePath = [[NSBundle mainBundle] pathForResource:@"<#licenseFilePath#>" ofType:@"lic"];
+    [TTSDKManager startWithConfiguration:configuration];
+    // 直播
+    configuration.licenseFilePath = [[NSBundle mainBundle] pathForResource:@"<#licenseFilePath#>" ofType:@"lic"];
     [TTSDKManager startWithConfiguration:configuration];
 }
 
