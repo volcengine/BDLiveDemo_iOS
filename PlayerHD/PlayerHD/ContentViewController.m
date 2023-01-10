@@ -182,7 +182,7 @@
 - (void)playerView:(BDLPlayerView *)playerView fullScreenButtonDidTouch:(BOOL)isSelected {
     NSLog(@"playerView=%p fullScreenButton.isSelected=%d", playerView, isSelected);
     if (isSelected) {
-        self.fullScreenVC = [[PlayerFullScreenViewController alloc] initWithPlayerView:self.playerView];
+        self.fullScreenVC = [[PlayerFullScreenViewController alloc] initWithView:self.playerView];
         if ([self isPortrait]) {
             self.fullScreenVC.orientation = UIInterfaceOrientationPortrait;
         }

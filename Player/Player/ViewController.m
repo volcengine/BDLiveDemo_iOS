@@ -120,7 +120,7 @@
 - (void)playerView:(BDLPlayerView *)playerView fullScreenButtonDidTouch:(BOOL)isSelected {
     NSLog(@"playerView=%p fullScreenButton.isSelected=%d", playerView, isSelected);
     if (isSelected) {
-        self.fullScreenVC = [[BDLPlayerFullScreenViewController alloc] initWithPlayerView:self.playerView];
+        self.fullScreenVC = [[BDLPlayerFullScreenViewController alloc] initWithView:self.playerView];
         
         [self.view bringSubviewToFront:self.playerContainerView];
         [self.view setNeedsLayout];
