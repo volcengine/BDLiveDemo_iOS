@@ -1,30 +1,29 @@
 //
 //  ViewController.m
 //   BDLive
-// 
+//
 //   BDLive SDK License
-//   
+//
 //   Copyright 2022 Beijing Volcano Engine Technology Ltd. All Rights Reserved.
-//   
-//   The BDLive SDK was developed by Beijing Volcanoengine Technology Ltd. (hereinafter “Volcano Engine”). 
-//   Any copyright or patent right is owned by and proprietary material of the Volcano Engine. 
-//   
-//   BDLive SDK is available under the VolcLive product and licensed under the commercial license. 
-//   Customers can contact service@volcengine.com for commercial licensing options. 
+//
+//   The BDLive SDK was developed by Beijing Volcanoengine Technology Ltd. (hereinafter “Volcano Engine”).
+//   Any copyright or patent right is owned by and proprietary material of the Volcano Engine.
+//
+//   BDLive SDK is available under the VolcLive product and licensed under the commercial license.
+//   Customers can contact service@volcengine.com for commercial licensing options.
 //   Here is also a link to subscription services agreement: https://www.volcengine.com/docs/6256/68938.
-//   
-//   Without Volcanoengine's prior written permission, any use of BDLive SDK, in particular any use for commercial purposes, is prohibited. 
-//   This includes, without limitation, incorporation in a commercial product, use in a commercial service, or production of other artefacts for commercial purposes. 
-//   
-//   Without Volcanoengine's prior written permission, the BDLive SDK may not be reproduced, modified and/or made available in any form to any third party. 
+//
+//   Without Volcanoengine's prior written permission, any use of BDLive SDK, in particular any use for commercial purposes, is prohibited.
+//   This includes, without limitation, incorporation in a commercial product, use in a commercial service, or production of other artefacts for commercial purposes.
+//
+//   Without Volcanoengine's prior written permission, the BDLive SDK may not be reproduced, modified and/or made available in any form to any third party.
 //
 
 #import "ViewController.h"
 #import <Masonry/Masonry.h>
-#import <YYCategories/YYCategories.h>
 #import <BDLive/BDLive.h>
 
-@interface ViewController () <BDLLivePullViewControllerDelegate, BDLFloatingPlayerDelegate>
+@interface ViewController () <BDLLivePullViewControllerDelegate, BDLLivePullViewControllerActionProvider, BDLFloatingPlayerDelegate>
 
 @property (nonatomic, strong) BDLActivity *activity;
 @property (nonatomic, strong) BDLFloatingPlayer *floatingPlayer;
@@ -45,6 +44,7 @@
 }
 
 - (IBAction)onFloatingPlayerButton:(UIButton *)sender {
+    [self leaveLiveRoom];
     [[BDLLiveEngine sharedInstance] joinLiveRoomWithActivity:self.activity success:^{
         [self showFloatingPlayer:self.activity.isPortrait];
     } failure:^(NSError * _Nonnull error) {
@@ -53,6 +53,7 @@
 }
 
 - (IBAction)onLiveRoomButton:(UIButton *)sender {
+    [self hideFloatingPlayer];
     [self joinLiveRoom];
 }
 
@@ -78,11 +79,17 @@
     [[BDLLiveEngine sharedInstance] joinLiveRoomWithActivity:self.activity success:^{
         self.livePullVC = [[BDLLiveEngine sharedInstance] getLivePullViewController];
         self.livePullVC.delegate = self;
+        self.livePullVC.actionProvider = self;
         [self configLivePullVC];
         [self showLivePullVC];
     } failure:^(NSError * _Nonnull error) {
         NSLog(@"%@", error);
     }];
+}
+
+- (void)leaveLiveRoom {
+    [self.livePullVC close:NO];
+    self.livePullVC = nil;
 }
 
 - (void)configLivePullVC {
@@ -94,9 +101,9 @@
                 if (!self) {
                     return;
                 }
-                [self.livePullVC close];
+                [self.livePullVC close:YES];
             };
-            return view;
+            return cardView;
         };
     };
     
@@ -106,7 +113,7 @@
             if (!self) {
                 return;
             }
-            [self.livePullVC close];
+            [self.livePullVC close:YES];
         };
         return view;
     };
@@ -117,7 +124,7 @@
             if (!self) {
                 return;
             }
-            [self.livePullVC close];
+            [self.livePullVC close:YES];
         };
         return view;
     };
@@ -153,11 +160,13 @@
     self.livePullVC = nil;
 }
 
-- (void)livePullViewController: (BDLLivePullViewController *)livePullVC floatingPlayerViewDidTap: ( BDLPlayerView *)playerView {
+#pragma mark - BDLLivePullViewControllerActionProvider
+
+- (void)showLivePullViewController:(BDLLivePullViewController *)livePullVC {
     [self showLivePullVC];
 }
 
-- (void)livePullViewControllerCloseButtonDidClick:(nonnull BDLLivePullViewController *)livePullVC isFloating:(BOOL)isFloating {
+- (void)hideLivePullViewController:(BDLLivePullViewController *)livePullVC {
     [self hideLivePullVC];
 }
 

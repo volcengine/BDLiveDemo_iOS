@@ -1,22 +1,22 @@
 //
 //  ViewController.m
 //   BDLive
-// 
+//
 //   BDLive SDK License
-//   
+//
 //   Copyright 2022 Beijing Volcano Engine Technology Ltd. All Rights Reserved.
-//   
-//   The BDLive SDK was developed by Beijing Volcanoengine Technology Ltd. (hereinafter “Volcano Engine”). 
-//   Any copyright or patent right is owned by and proprietary material of the Volcano Engine. 
-//   
-//   BDLive SDK is available under the VolcLive product and licensed under the commercial license. 
-//   Customers can contact service@volcengine.com for commercial licensing options. 
+//
+//   The BDLive SDK was developed by Beijing Volcanoengine Technology Ltd. (hereinafter “Volcano Engine”).
+//   Any copyright or patent right is owned by and proprietary material of the Volcano Engine.
+//
+//   BDLive SDK is available under the VolcLive product and licensed under the commercial license.
+//   Customers can contact service@volcengine.com for commercial licensing options.
 //   Here is also a link to subscription services agreement: https://www.volcengine.com/docs/6256/68938.
-//   
-//   Without Volcanoengine's prior written permission, any use of BDLive SDK, in particular any use for commercial purposes, is prohibited. 
-//   This includes, without limitation, incorporation in a commercial product, use in a commercial service, or production of other artefacts for commercial purposes. 
-//   
-//   Without Volcanoengine's prior written permission, the BDLive SDK may not be reproduced, modified and/or made available in any form to any third party. 
+//
+//   Without Volcanoengine's prior written permission, any use of BDLive SDK, in particular any use for commercial purposes, is prohibited.
+//   This includes, without limitation, incorporation in a commercial product, use in a commercial service, or production of other artefacts for commercial purposes.
+//
+//   Without Volcanoengine's prior written permission, the BDLive SDK may not be reproduced, modified and/or made available in any form to any third party.
 //
 
 #import "ViewController.h"
@@ -98,7 +98,7 @@
     [self.viewerDirectionControl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
         make.top.equalTo(self.secondHintLabel.mas_bottom).offset(40);
-        make.width.equalTo(@100);
+        make.width.equalTo(@200);
     }];
     
     UIButton *startButton = [[UIButton alloc] init];
@@ -108,7 +108,7 @@
     startButton.backgroundColor = [UIColor systemBlueColor];
     [startButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
-        make.centerY.equalTo(self.view).offset(-40);
+        make.centerY.equalTo(self.view).offset(40);
         make.width.equalTo(@100);
         make.height.equalTo(@40);
     }];
