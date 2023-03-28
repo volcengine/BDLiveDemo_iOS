@@ -8,6 +8,6 @@ target 'SimpleViewer' do
   use_frameworks!
 
   # Pods for SimpleViewer
-  pod 'BDLive', '1.19.2'
+  pod 'BDLive', '1.20.0'
 
 end
