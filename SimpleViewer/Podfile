@@ -3,11 +3,22 @@ source 'https://github.com/volcengine/volcengine-specs.git'
 
 platform :ios, '9.0'
 
+post_install do |installer|
+  installer.generated_projects.each do |project|
+    project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['CODE_SIGN_IDENTITY'] = ''
+            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '9.0' # 不加Xcode14.3 报错
+         end
+    end
+  end
+end
+
 target 'SimpleViewer' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
   # Pods for SimpleViewer
-  pod 'BDLive', '1.21.0'
+  pod 'BDLive', '1.22.0'
 
 end
