@@ -124,7 +124,10 @@
         return;
     }
     if (self.typeControl.selectedSegmentIndex == 0) { // LiveStreaming
-        [[BDLLiveStreaming sharedInstance] joinLiveStreamingWithActivityId:@([self.firstInputTextField.text longLongValue]) secretKey:self.secondInputTextField.text success:^{
+        BDLLiveStreamingModel *model = [[BDLLiveStreamingModel alloc] init];
+        model.activityId = @([self.firstInputTextField.text longLongValue]);
+        model.secretKey = self.secondInputTextField.text;
+        [[BDLLiveStreaming sharedInstance] joinLiveStreamingWithModel:model success:^{
             BDLLiveStreamingController *liveStreamingVC = [[BDLLiveStreaming sharedInstance] getLiveStreamingController];
             liveStreamingVC.modalPresentationStyle = UIModalPresentationFullScreen;
             liveStreamingVC.delegate = self;

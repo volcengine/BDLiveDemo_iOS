@@ -14,8 +14,36 @@
 		48D1CE4E28C8CFB900B559CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48D1CE4D28C8CFB900B559CB /* Assets.xcassets */; };
 		48D1CE5128C8CFB900B559CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48D1CE4F28C8CFB900B559CB /* LaunchScreen.storyboard */; };
 		48D1CE5428C8CFB900B559CB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 48D1CE5328C8CFB900B559CB /* main.m */; };
+		48F09F2B2A2F0F3800121E90 /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48F09F2A2A2F0F3800121E90 /* ReplayKit.framework */; };
+		48F09F2F2A2F0F3800121E90 /* SampleHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 48F09F2E2A2F0F3800121E90 /* SampleHandler.m */; };
+		48F09F332A2F0F3800121E90 /* RecordExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 48F09F292A2F0F3800121E90 /* RecordExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		48F09F3B2A2F108900121E90 /* VolcEngineRTCScreenCapturer.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48F09F3A2A2F108900121E90 /* VolcEngineRTCScreenCapturer.xcframework */; };
 		992D3FA8C7433AEBDADDD106 /* Pods_LiveStreaming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBC2B30BAA35DB5A2CDEB18E /* Pods_LiveStreaming.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		48F09F312A2F0F3800121E90 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 48D1CE3628C8CFB700B559CB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 48F09F282A2F0F3800121E90;
+			remoteInfo = RecordExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		48F09F342A2F0F3800121E90 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				48F09F332A2F0F3800121E90 /* RecordExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		48D1CE3E28C8CFB700B559CB /* LiveStreaming.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiveStreaming.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -30,6 +58,14 @@
 		48D1CE5028C8CFB900B559CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		48D1CE5228C8CFB900B559CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48D1CE5328C8CFB900B559CB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		48F09F292A2F0F3800121E90 /* RecordExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = RecordExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		48F09F2A2A2F0F3800121E90 /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
+		48F09F2D2A2F0F3800121E90 /* SampleHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleHandler.h; sourceTree = "<group>"; };
+		48F09F2E2A2F0F3800121E90 /* SampleHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleHandler.m; sourceTree = "<group>"; };
+		48F09F302A2F0F3800121E90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48F09F382A2F0FDE00121E90 /* LiveStreaming.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LiveStreaming.entitlements; sourceTree = "<group>"; };
+		48F09F392A2F0FFC00121E90 /* RecordExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RecordExtension.entitlements; sourceTree = "<group>"; };
+		48F09F3A2A2F108900121E90 /* VolcEngineRTCScreenCapturer.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = VolcEngineRTCScreenCapturer.xcframework; path = "Pods/VolcEngineRTC-VE/VolcEngineRTCScreenCapturer.xcframework"; sourceTree = "<group>"; };
 		ABF03F4CBB672491848C1686 /* Pods-LiveStreaming.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveStreaming.debug.xcconfig"; path = "Target Support Files/Pods-LiveStreaming/Pods-LiveStreaming.debug.xcconfig"; sourceTree = "<group>"; };
 		CBC2B30BAA35DB5A2CDEB18E /* Pods_LiveStreaming.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LiveStreaming.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF7C5AF5354F51A470B1FE86 /* Pods-LiveStreaming.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveStreaming.release.xcconfig"; path = "Target Support Files/Pods-LiveStreaming/Pods-LiveStreaming.release.xcconfig"; sourceTree = "<group>"; };
@@ -41,6 +77,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				992D3FA8C7433AEBDADDD106 /* Pods_LiveStreaming.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48F09F262A2F0F3800121E90 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48F09F2B2A2F0F3800121E90 /* ReplayKit.framework in Frameworks */,
+				48F09F3B2A2F108900121E90 /* VolcEngineRTCScreenCapturer.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,7 +104,9 @@
 		2FAC0C6D5030F4948E31778C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				48F09F3A2A2F108900121E90 /* VolcEngineRTCScreenCapturer.xcframework */,
 				CBC2B30BAA35DB5A2CDEB18E /* Pods_LiveStreaming.framework */,
+				48F09F2A2A2F0F3800121E90 /* ReplayKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -68,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				48D1CE4028C8CFB700B559CB /* LiveStreaming */,
+				48F09F2C2A2F0F3800121E90 /* RecordExtension */,
 				48D1CE3F28C8CFB700B559CB /* Products */,
 				29405E3E67615F2E3B29CCD7 /* Pods */,
 				2FAC0C6D5030F4948E31778C /* Frameworks */,
@@ -78,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				48D1CE3E28C8CFB700B559CB /* LiveStreaming.app */,
+				48F09F292A2F0F3800121E90 /* RecordExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -85,6 +134,7 @@
 		48D1CE4028C8CFB700B559CB /* LiveStreaming */ = {
 			isa = PBXGroup;
 			children = (
+				48F09F382A2F0FDE00121E90 /* LiveStreaming.entitlements */,
 				48D1CE4128C8CFB700B559CB /* AppDelegate.h */,
 				48D1CE4228C8CFB700B559CB /* AppDelegate.m */,
 				48D1CE4428C8CFB700B559CB /* SceneDelegate.h */,
@@ -100,6 +150,17 @@
 			path = LiveStreaming;
 			sourceTree = "<group>";
 		};
+		48F09F2C2A2F0F3800121E90 /* RecordExtension */ = {
+			isa = PBXGroup;
+			children = (
+				48F09F392A2F0FFC00121E90 /* RecordExtension.entitlements */,
+				48F09F2D2A2F0F3800121E90 /* SampleHandler.h */,
+				48F09F2E2A2F0F3800121E90 /* SampleHandler.m */,
+				48F09F302A2F0F3800121E90 /* Info.plist */,
+			);
+			path = RecordExtension;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -113,15 +174,34 @@
 				48D1CE3C28C8CFB700B559CB /* Resources */,
 				D1B011160B57B991B0B20BF6 /* [CP] Embed Pods Frameworks */,
 				7E359E60FBBBCB2A6B359E82 /* [CP] Copy Pods Resources */,
+				48F09F342A2F0F3800121E90 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				48F09F322A2F0F3800121E90 /* PBXTargetDependency */,
 			);
 			name = LiveStreaming;
 			productName = LiveStreaming;
 			productReference = 48D1CE3E28C8CFB700B559CB /* LiveStreaming.app */;
 			productType = "com.apple.product-type.application";
+		};
+		48F09F282A2F0F3800121E90 /* RecordExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 48F09F372A2F0F3800121E90 /* Build configuration list for PBXNativeTarget "RecordExtension" */;
+			buildPhases = (
+				48F09F252A2F0F3800121E90 /* Sources */,
+				48F09F262A2F0F3800121E90 /* Frameworks */,
+				48F09F272A2F0F3800121E90 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RecordExtension;
+			productName = RecordExtension;
+			productReference = 48F09F292A2F0F3800121E90 /* RecordExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -134,6 +214,9 @@
 				TargetAttributes = {
 					48D1CE3D28C8CFB700B559CB = {
 						CreatedOnToolsVersion = 13.4.1;
+					};
+					48F09F282A2F0F3800121E90 = {
+						CreatedOnToolsVersion = 14.3;
 					};
 				};
 			};
@@ -151,6 +234,7 @@
 			projectRoot = "";
 			targets = (
 				48D1CE3D28C8CFB700B559CB /* LiveStreaming */,
+				48F09F282A2F0F3800121E90 /* RecordExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -163,6 +247,13 @@
 				48D1CE5128C8CFB900B559CB /* LaunchScreen.storyboard in Resources */,
 				48D1CE4E28C8CFB900B559CB /* Assets.xcassets in Resources */,
 				48D1CE4C28C8CFB700B559CB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48F09F272A2F0F3800121E90 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,7 +330,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		48F09F252A2F0F3800121E90 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48F09F2F2A2F0F3800121E90 /* SampleHandler.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		48F09F322A2F0F3800121E90 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 48F09F282A2F0F3800121E90 /* RecordExtension */;
+			targetProxy = 48F09F312A2F0F3800121E90 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		48D1CE4A28C8CFB700B559CB /* Main.storyboard */ = {
@@ -377,10 +484,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LiveStreaming/LiveStreaming.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3XMD9D6A65;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 3XMD9D6A65;
 				ENABLE_BITCODE = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LiveStreaming/Info.plist;
@@ -400,6 +509,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.bytedance.videoarch.TTLiveStream;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Wildcard;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "TTLiveStream-Dev";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -411,10 +521,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LiveStreaming/LiveStreaming.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3XMD9D6A65;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 3XMD9D6A65;
 				ENABLE_BITCODE = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LiveStreaming/Info.plist;
@@ -434,6 +546,69 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.bytedance.videoarch.TTLiveStream;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Wildcard;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "TTLiveStream-Dev";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		48F09F352A2F0F3800121E90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = RecordExtension/RecordExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 3XMD9D6A65;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RecordExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = RecordExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bytedance.videoarch.TTLiveStream.TTLVRecordExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = TTLVRecordExtension;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		48F09F362A2F0F3800121E90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = RecordExtension/RecordExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 3XMD9D6A65;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RecordExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = RecordExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bytedance.videoarch.TTLiveStream.TTLVRecordExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = TTLVRecordExtension;
+				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -456,6 +631,15 @@
 			buildConfigurations = (
 				48D1CE5828C8CFB900B559CB /* Debug */,
 				48D1CE5928C8CFB900B559CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		48F09F372A2F0F3800121E90 /* Build configuration list for PBXNativeTarget "RecordExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48F09F352A2F0F3800121E90 /* Debug */,
+				48F09F362A2F0F3800121E90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
