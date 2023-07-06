@@ -40,10 +40,10 @@
     configuration.appName = @"LiveStreaming";
     configuration.channel = @"App Store";
     // 点播 (混流视频需要用到点播的能力)
-    configuration.licenseFilePath = [[NSBundle mainBundle] pathForResource:@"<#licenseFilePath#>" ofType:@"lic"];
+    configuration.licenseFilePath = [[NSBundle mainBundle] pathForResource:@"<#licenseFileName#>" ofType:@"lic"];
     [TTSDKManager startWithConfiguration:configuration];
     // 直播
-    configuration.licenseFilePath = [[NSBundle mainBundle] pathForResource:@"<#licenseFilePath#>" ofType:@"lic"];
+    configuration.licenseFilePath = [[NSBundle mainBundle] pathForResource:@"<#licenseFileName#>" ofType:@"lic"];
     [TTSDKManager startWithConfiguration:configuration];
 }
 

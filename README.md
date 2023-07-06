@@ -9,6 +9,7 @@
 - `HybridViewer`: 演示了如何使用观播 SDK 配合您的业务 UI，搭建定制化的直播间。
 - `LiveStreaming`: 演示了如何通过少量代码接入开播 SDK。
 - `LiveStreamingAndViewer`: 演示了如何通过少量代码同时接入观播 SDK 和开播 SDK。
+- `BasePlayer`: 演示了如何接入基础播放器，并在此基础上实现视频的控制界面。
 本文以 SimpleViewer 为例，介绍如何快速编译并运行 Demo。
 
 # 前提条件

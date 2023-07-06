@@ -41,10 +41,10 @@
     configuration.appName = @"HybridViewer";
     configuration.channel = @"App Store";
     // 点播
-    configuration.licenseFilePath = [[NSBundle mainBundle] pathForResource:@"<#licenseFilePath#>" ofType:@"lic"];
+    configuration.licenseFilePath = [[NSBundle mainBundle] pathForResource:@"<#licenseFileName#>" ofType:@"lic"];
     [TTSDKManager startWithConfiguration:configuration];
     // 直播
-    configuration.licenseFilePath = [[NSBundle mainBundle] pathForResource:@"<#licenseFilePath#>" ofType:@"lic"];
+    configuration.licenseFilePath = [[NSBundle mainBundle] pathForResource:@"<#licenseFileName#>" ofType:@"lic"];
     [TTSDKManager startWithConfiguration:configuration];
 }
 

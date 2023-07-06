@@ -33,11 +33,6 @@
 
 @implementation ViewController
 
-- (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [self leaveLiveRoom];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
