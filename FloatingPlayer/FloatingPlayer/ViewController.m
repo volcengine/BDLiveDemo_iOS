@@ -107,26 +107,28 @@
         };
     };
     
-    self.livePullVC.config.customizeFloatingCardView = ^__kindof BDLBaseView * _Nullable(BDLLivePullViewController * _Nonnull viewController, BDLFloatingCardView * _Nonnull view) {
-        view.viewTappedBlock = ^(NSString * _Nullable urlStr, BOOL enableFloating) {
-            @strongify(self);
-            if (!self) {
-                return;
-            }
-            [self.livePullVC close:YES];
+    self.livePullVC.config.customFloatingController = ^(BDLLivePullViewController * _Nonnull viewController, BDLFloatingController * _Nonnull floatingController) {
+        floatingController.customizeFloatingCardView = ^__kindof BDLBaseView * _Nullable(BDLFloatingController * _Nonnull floatingController, BDLFloatingCardView * _Nonnull view) {
+            view.viewTappedBlock = ^(NSString * _Nullable urlStr, BOOL enableFloating) {
+                @strongify(self);
+                if (!self) {
+                    return;
+                }
+                [self.livePullVC close:YES];
+            };
+            return view;
         };
-        return view;
-    };
-    
-    self.livePullVC.config.customizeUpperAdView = ^__kindof BDLBaseView * _Nullable(BDLLivePullViewController * _Nonnull viewController, BDLUpperAdView * _Nonnull view) {
-        view.viewTappedBlock = ^(NSString * _Nullable urlStr) {
-            @strongify(self);
-            if (!self) {
-                return;
-            }
-            [self.livePullVC close:YES];
+        
+        floatingController.customizeUpperAdView = ^__kindof BDLBaseView * _Nullable(BDLFloatingController * _Nonnull floatingController, BDLUpperAdView * _Nonnull view) {
+            view.viewTappedBlock = ^(NSString * _Nullable urlStr) {
+                @strongify(self);
+                if (!self) {
+                    return;
+                }
+                [self.livePullVC close:YES];
+            };
+            return view;
         };
-        return view;
     };
     
     self.livePullVC.config.customizeViewConstraints = ^(BDLLivePullViewController * _Nonnull viewController) {

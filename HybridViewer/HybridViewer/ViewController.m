@@ -152,15 +152,8 @@
         middleView.backgroundColor = [UIColor redColor];
         middleView.alpha = 0.2;
         
-        // 置于浮窗广告之下，避免浮窗广告被自定义view遮挡
-        if (viewController.upperAdView) {
-            [viewController.contentView insertSubview:topButton belowSubview:viewController.upperAdView];
-            [viewController.contentView insertSubview:middleView belowSubview:viewController.upperAdView];
-        }
-        else {
-            [viewController.contentView addSubview:topButton];
-            [viewController.contentView addSubview:middleView];
-        }
+        [viewController.contentView addSubview:topButton];
+        [viewController.contentView addSubview:middleView];
        
         [topButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.width.equalTo(@200);

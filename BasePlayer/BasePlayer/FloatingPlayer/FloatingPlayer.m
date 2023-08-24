@@ -38,5 +38,4 @@
     LogContent(@"纯净播放器双击了");
     [super basePlayerViewDidDoubleTap:basePlayerView];
 }
-
 @end

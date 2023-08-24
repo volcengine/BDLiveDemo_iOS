@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>SSAppID</key>
+	<string></string>
 	<key>NSCalendarsUsageDescription</key>
 	<string>用于直播预约提醒能力</string>
 	<key>NSMicrophoneUsageDescription</key>
