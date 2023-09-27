@@ -18,5 +18,5 @@ target 'BasePlayer' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   # Pods for BasePlayer
-  'BDLive', '1.28.0'
+  pod 'BDLive', '1.29.1'
 end

@@ -20,7 +20,7 @@ target 'LiveStreamingAndViewer' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  pod 'BDLive', '1.28.0', :subspecs => [
+  pod 'BDLive', '1.29.1', :subspecs => [
     'LiveStreaming',
     'Viewer',
   ]

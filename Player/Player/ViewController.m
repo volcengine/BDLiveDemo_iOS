@@ -60,9 +60,6 @@
     [[BDLLiveEngine sharedInstance] joinLiveRoomWithActivity:activity success:^{
         self.playerView = [[BDLPlayerView alloc] initWithPortrait:activity.isPortrait];
         self.playerView.delegate = self;
-        
-        self.playerView.config.common.enableInAppVodPiP = NO;
-        self.playerView.config.common.enableInAppLivePiP = NO;
         if (@available(iOS 14.0, *)) {
             self.playerView.config.common.enableVodPiP = NO;
             self.playerView.config.common.enableLivePiP = NO;

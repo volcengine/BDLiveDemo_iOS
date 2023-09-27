@@ -129,8 +129,7 @@
     
     self.playerView = [[BDLPlayerView alloc] initWithPortrait:self.activity.isPortrait];
     self.playerView.delegate = self;
-    self.playerView.config.common.enableInAppVodPiP = NO;
-    self.playerView.config.common.enableInAppLivePiP = NO;
+ 
     [self.playerContainerView addSubview:self.playerView];
     [self.playerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.playerContainerView);
