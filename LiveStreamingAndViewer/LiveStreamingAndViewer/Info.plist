@@ -4,6 +4,8 @@
 <dict>
 	<key>SSAppID</key>
 	<string></string>
+	<key>NSPhotoLibraryAddUsageDescription</key> 
+	<string>App 需要获取您的相册写入权限，用于保存图片到相册</string>
 	<key>NSCalendarsUsageDescription</key>
 	<string>用于直播预约提醒能力</string>
 	<key>NSMicrophoneUsageDescription</key>

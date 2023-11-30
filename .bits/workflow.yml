@@ -82,3 +82,12 @@ jobs:
       bdl_scheme: Player
       bdl_demo_path: Player
 
+  EcommerceViewer:
+    type: service
+    service_name: build
+    display_name: EcommerceViewer
+    settings:
+      template_config_id: 54176
+      bdl_scheme: EcommerceViewer
+      bdl_demo_path: EcommerceViewer
+
