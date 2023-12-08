@@ -1,14 +1,15 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '9.0'
+platform :ios, '11.0'
 source 'https://github.com/cocoapods/Specs.git'
 source 'https://github.com/volcengine/volcengine-specs.git'
+source 'git@code.byted.org:iOS_Library/volcengine_inner_binary_repo.git'
 
 post_install do |installer|
   installer.generated_projects.each do |project|
     project.targets.each do |target|
         target.build_configurations.each do |config|
             config.build_settings['CODE_SIGN_IDENTITY'] = ''
-            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '9.0' # 不加Xcode14.3 报错
+            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '11.0' # 不加Xcode14.3 报错
          end
     end
   end
@@ -17,10 +18,17 @@ end
 target 'LiveStreaming' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
- pod 'BDLive', '1.30.0', :subspecs => [
-    'LiveStreaming',
-    'ScreenShare',
+#  pod 'BDLive', '1.31.0', :subspecs => [
+#  'LiveStreaming',
+#  'ScreenShare',
+#  ]
+#    
+#    pod 'BDLive', '1.31.0-static-ttsdk', :subspecs => [
+#    'LiveStreaming',
+#    'ScreenShare',
+#    ]
+  pod 'BDLive', '1.31.0-static-ttsdk', :subspecs => [
+  'LiveStreamingWithoutRTC',
+  'ScreenShare',
   ]
-  # Pods for LiveStreaming
-
 end

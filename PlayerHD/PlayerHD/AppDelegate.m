@@ -19,7 +19,12 @@
 //
 
 #import "AppDelegate.h"
-#import <TTSDKFramework/TTSDKFramework.h>
+
+#if __has_include(<TTSDKFramework/TTSDKFramework.h>)
+    #import <TTSDKFramework/TTSDKManager.h>
+#elif __has_include(<TTSDK/TTSDKManager.h>)
+    #import <TTSDK/TTSDKManager.h>
+#endif
 
 @interface AppDelegate ()
 

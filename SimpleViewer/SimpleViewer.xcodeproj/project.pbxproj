@@ -121,8 +121,8 @@
 				2BD2D97527D9ED4E0029138B /* Sources */,
 				2BD2D97627D9ED4E0029138B /* Frameworks */,
 				2BD2D97727D9ED4E0029138B /* Resources */,
-				79836003DFE69C94CFC9E1B2 /* [CP] Embed Pods Frameworks */,
-				697EEBB0F52203A5C7AFD729 /* [CP] Copy Pods Resources */,
+				B45AFD3FA7F443CBF17CAF90 /* [CP] Embed Pods Frameworks */,
+				5FEE5B9E72261207F62407B8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -179,7 +179,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		697EEBB0F52203A5C7AFD729 /* [CP] Copy Pods Resources */ = {
+		5FEE5B9E72261207F62407B8 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -196,7 +196,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SimpleViewer/Pods-SimpleViewer-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		79836003DFE69C94CFC9E1B2 /* [CP] Embed Pods Frameworks */ = {
+		B45AFD3FA7F443CBF17CAF90 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -408,6 +408,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ld64",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bytedance.videoarch.TTLiveStream;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "TTLiveStream-Dev";
@@ -441,6 +445,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ld64",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bytedance.videoarch.TTLiveStream;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "TTLiveStream-AdHoc";

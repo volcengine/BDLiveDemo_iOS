@@ -112,7 +112,7 @@
 				48643D59283E5A70003F1502 /* Frameworks */,
 				48643D5A283E5A70003F1502 /* Resources */,
 				5F1D483BED2EAD74F6384759 /* [CP] Embed Pods Frameworks */,
-				ACE5718D22F24AAF5938112F /* [CP] Copy Pods Resources */,
+				D8C8B2651C6860713AFD92D5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -186,7 +186,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HybridViewer/Pods-HybridViewer-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		ACE5718D22F24AAF5938112F /* [CP] Copy Pods Resources */ = {
+		D8C8B2651C6860713AFD92D5 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -394,6 +394,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ld64",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bytedance.videoarch.TTLiveStream;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "TTLiveStream-Dev";
@@ -425,6 +429,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ld64",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bytedance.videoarch.TTLiveStream;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "TTLiveStream-AdHoc";
