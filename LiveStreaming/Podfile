@@ -2,7 +2,6 @@
 platform :ios, '11.0'
 source 'https://github.com/cocoapods/Specs.git'
 source 'https://github.com/volcengine/volcengine-specs.git'
-source 'git@code.byted.org:iOS_Library/volcengine_inner_binary_repo.git'
 
 post_install do |installer|
   installer.generated_projects.each do |project|
@@ -15,20 +14,30 @@ post_install do |installer|
   end
 end
 
+def bdlive
+  pod 'BDLive', '1.32.0', :subspecs => [
+    'LiveStreaming',
+    'ScreenShare',
+  ]
+end
+
+def bdlive_ttsdk_static
+  pod 'BDLive', '1.32.0-static-ttsdk', :subspecs => [
+    'LiveStreaming',
+    'ScreenShare',
+  ]
+end
+
+def bdlive_ttsdk_static_no_rtc
+  pod 'BDLive', '1.32.0-static-ttsdk', :subspecs => [
+    'LiveStreamingWithoutRTC',
+    'ScreenShare',
+  ]
+end
+
 target 'LiveStreaming' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-#  pod 'BDLive', '1.31.0', :subspecs => [
-#  'LiveStreaming',
-#  'ScreenShare',
-#  ]
-#    
-#    pod 'BDLive', '1.31.0-static-ttsdk', :subspecs => [
-#    'LiveStreaming',
-#    'ScreenShare',
-#    ]
-  pod 'BDLive', '1.31.0-static-ttsdk', :subspecs => [
-  'LiveStreamingWithoutRTC',
-  'ScreenShare',
-  ]
+  
+  bdlive_ttsdk_static_no_rtc
 end

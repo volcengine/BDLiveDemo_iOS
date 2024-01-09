@@ -152,8 +152,8 @@
         middleView.backgroundColor = [UIColor redColor];
         middleView.alpha = 0.2;
         
-        [viewController.contentView addSubview:topButton];
-        [viewController.contentView addSubview:middleView];
+        [viewController.contentScrollView addSubview:topButton];
+        [viewController.contentScrollView addSubview:middleView];
        
         [topButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.width.equalTo(@200);
@@ -164,14 +164,16 @@
     
         [middleView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(viewController.playerContainerView.mas_bottom).offset(10);
-            make.left.right.equalTo(viewController.contentView);
+            make.left.right.equalTo(viewController.contentScrollView);
+            // make.left.right.equalTo(viewController.view); // 如果不想跟随清屏消失，可以依照 viewController.view 布局
             make.height.equalTo(@30);
         }];
         
         // 调整 直播间描述的位置
         [viewController.liveDescriptionView mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(middleView.mas_bottom).offset(10);
-            make.left.right.equalTo(viewController.contentView);
+            make.left.right.equalTo(viewController.contentScrollView);
+            // make.left.right.equalTo(viewController.view); // 如果不想跟随清屏消失，可以依照 viewController.view 布局
             make.height.equalTo(@17);
         }];
     };
