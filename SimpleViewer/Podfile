@@ -15,15 +15,19 @@ post_install do |installer|
 end
 
 def bdlive
-  pod 'BDLive', '1.32.0'
+  pod 'BDLive', '1.34.0'
+end
+
+def bdlive_no_rtc
+  pod 'BDLive/ViewerWithoutRTC', '1.34.0'
 end
 
 def bdlive_ttsdk_static
-  pod 'BDLive', '1.32.0-static-ttsdk'
+  pod 'BDLive', '1.34.0-static-ttsdk'
 end
 
 def bdlive_ttsdk_static_no_rtc
-  pod 'BDLive/ViewerWithoutRTC', '1.32.0-static-ttsdk'
+  pod 'BDLive/ViewerWithoutRTC', '1.34.0-static-ttsdk'
 end
 
 target 'SimpleViewer' do

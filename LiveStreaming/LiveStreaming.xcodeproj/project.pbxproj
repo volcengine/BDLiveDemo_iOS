@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		346D67331EE34284BE1C77E6 /* libPods-LiveStreaming.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A894BC5865237F49A92C3549 /* libPods-LiveStreaming.a */; };
 		48D1CE4328C8CFB700B559CB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 48D1CE4228C8CFB700B559CB /* AppDelegate.m */; };
 		48D1CE4628C8CFB700B559CB /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 48D1CE4528C8CFB700B559CB /* SceneDelegate.m */; };
 		48D1CE4928C8CFB700B559CB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48D1CE4828C8CFB700B559CB /* ViewController.m */; };
@@ -18,7 +19,6 @@
 		48F09F2F2A2F0F3800121E90 /* SampleHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 48F09F2E2A2F0F3800121E90 /* SampleHandler.m */; };
 		48F09F332A2F0F3800121E90 /* RecordExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 48F09F292A2F0F3800121E90 /* RecordExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		48F09F3B2A2F108900121E90 /* VolcEngineRTCScreenCapturer.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48F09F3A2A2F108900121E90 /* VolcEngineRTCScreenCapturer.xcframework */; };
-		992D3FA8C7433AEBDADDD106 /* Pods_LiveStreaming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBC2B30BAA35DB5A2CDEB18E /* Pods_LiveStreaming.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,8 +66,8 @@
 		48F09F382A2F0FDE00121E90 /* LiveStreaming.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LiveStreaming.entitlements; sourceTree = "<group>"; };
 		48F09F392A2F0FFC00121E90 /* RecordExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RecordExtension.entitlements; sourceTree = "<group>"; };
 		48F09F3A2A2F108900121E90 /* VolcEngineRTCScreenCapturer.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = VolcEngineRTCScreenCapturer.xcframework; path = "Pods/VolcEngineRTC-VE/VolcEngineRTCScreenCapturer.xcframework"; sourceTree = "<group>"; };
+		A894BC5865237F49A92C3549 /* libPods-LiveStreaming.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LiveStreaming.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF03F4CBB672491848C1686 /* Pods-LiveStreaming.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveStreaming.debug.xcconfig"; path = "Target Support Files/Pods-LiveStreaming/Pods-LiveStreaming.debug.xcconfig"; sourceTree = "<group>"; };
-		CBC2B30BAA35DB5A2CDEB18E /* Pods_LiveStreaming.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LiveStreaming.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF7C5AF5354F51A470B1FE86 /* Pods-LiveStreaming.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveStreaming.release.xcconfig"; path = "Target Support Files/Pods-LiveStreaming/Pods-LiveStreaming.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,7 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				992D3FA8C7433AEBDADDD106 /* Pods_LiveStreaming.framework in Frameworks */,
+				346D67331EE34284BE1C77E6 /* libPods-LiveStreaming.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,8 +105,8 @@
 			isa = PBXGroup;
 			children = (
 				48F09F3A2A2F108900121E90 /* VolcEngineRTCScreenCapturer.xcframework */,
-				CBC2B30BAA35DB5A2CDEB18E /* Pods_LiveStreaming.framework */,
 				48F09F2A2A2F0F3800121E90 /* ReplayKit.framework */,
+				A894BC5865237F49A92C3549 /* libPods-LiveStreaming.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

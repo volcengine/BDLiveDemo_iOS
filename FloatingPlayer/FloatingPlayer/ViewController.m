@@ -96,7 +96,7 @@
     @weakify(self);
     self.livePullVC.config.customizeMenuBarView = ^(BDLLivePullViewController * _Nonnull viewController, BDLMenuBarView * _Nonnull view) {
         view.customizeCardView = ^__kindof BDLBaseView * _Nullable(BDLMenuBarView * _Nonnull view, BDLCardView * _Nonnull cardView) {
-            cardView.viewTappedBlock = ^(NSString * _Nullable urlStr) {
+            cardView.viewTappedBlock = ^(NSString * _Nullable urlStr, BOOL enableFloating) {
                 @strongify(self);
                 if (!self) {
                     return;

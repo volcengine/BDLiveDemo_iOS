@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		406829D6E438EB67C442CF0F /* Pods_LiveStreamingAndViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFB78177DF3742948D957F92 /* Pods_LiveStreamingAndViewer.framework */; };
 		48D1CE1428C83CF200B559CB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 48D1CE1328C83CF200B559CB /* AppDelegate.m */; };
 		48D1CE1728C83CF200B559CB /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 48D1CE1628C83CF200B559CB /* SceneDelegate.m */; };
 		48D1CE1A28C83CF200B559CB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48D1CE1928C83CF200B559CB /* ViewController.m */; };
@@ -15,10 +14,12 @@
 		48D1CE1F28C83CF400B559CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48D1CE1E28C83CF400B559CB /* Assets.xcassets */; };
 		48D1CE2228C83CF400B559CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48D1CE2028C83CF400B559CB /* LaunchScreen.storyboard */; };
 		48D1CE2528C83CF400B559CB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 48D1CE2428C83CF400B559CB /* main.m */; };
+		68DD3CDB470A84A967CDCF15 /* libPods-LiveStreamingAndViewer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4335EE27767D1533B8F394C8 /* libPods-LiveStreamingAndViewer.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3982E56E51621D349E71E287 /* Pods-LiveStreamingAndViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveStreamingAndViewer.release.xcconfig"; path = "Target Support Files/Pods-LiveStreamingAndViewer/Pods-LiveStreamingAndViewer.release.xcconfig"; sourceTree = "<group>"; };
+		4335EE27767D1533B8F394C8 /* libPods-LiveStreamingAndViewer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LiveStreamingAndViewer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		48D1CE0F28C83CF200B559CB /* LiveStreamingAndViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiveStreamingAndViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48D1CE1228C83CF200B559CB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		48D1CE1328C83CF200B559CB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -32,7 +33,6 @@
 		48D1CE2328C83CF400B559CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48D1CE2428C83CF400B559CB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		771A9AF01C3F2DAB78C2F57A /* Pods-LiveStreamingAndViewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveStreamingAndViewer.debug.xcconfig"; path = "Target Support Files/Pods-LiveStreamingAndViewer/Pods-LiveStreamingAndViewer.debug.xcconfig"; sourceTree = "<group>"; };
-		DFB78177DF3742948D957F92 /* Pods_LiveStreamingAndViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LiveStreamingAndViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,7 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				406829D6E438EB67C442CF0F /* Pods_LiveStreamingAndViewer.framework in Frameworks */,
+				68DD3CDB470A84A967CDCF15 /* libPods-LiveStreamingAndViewer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,7 +59,7 @@
 		3E37F5D3180F5FCD39C91791 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DFB78177DF3742948D957F92 /* Pods_LiveStreamingAndViewer.framework */,
+				4335EE27767D1533B8F394C8 /* libPods-LiveStreamingAndViewer.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
