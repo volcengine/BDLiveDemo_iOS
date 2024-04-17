@@ -1,0 +1,84 @@
+type: pipeline
+
+jobs:
+  BasePlayer:
+    type: service
+    service_name: build
+    display_name: BasePlayer
+    settings:
+      template_config_id: 54176
+      bdl_scheme: BasePlayer
+      bdl_demo_path: BasePlayer
+
+  HybridViewer:
+    type: service
+    service_name: build
+    display_name: HybridViewer
+    settings:
+      template_config_id: 54176
+      bdl_scheme: HybridViewer
+      bdl_demo_path: HybridViewer
+
+  LiveStreamingAndViewer:
+    type: service
+    service_name: build
+    display_name: LiveStreamingAndViewer
+    settings:
+      template_config_id: 54176
+      bdl_scheme: LiveStreamingAndViewer
+      bdl_demo_path: LiveStreamingAndViewer
+
+  PlayerHD:
+    type: service
+    service_name: build
+    display_name: PlayerHD
+    settings:
+      template_config_id: 54176
+      bdl_scheme: PlayerHD
+      bdl_demo_path: PlayerHD
+
+  SimpleViewer:
+    type: service
+    service_name: build
+    display_name: SimpleViewer
+    settings:
+      template_config_id: 54176
+      bdl_scheme: SimpleViewer
+      bdl_demo_path: SimpleViewer
+
+  TwoBasePlayer:
+    type: service
+    service_name: build
+    display_name: TwoBasePlayer
+    settings:
+      template_config_id: 54176
+      bdl_scheme: TwoBasePlayer
+      bdl_demo_path: TwoBasePlayer
+
+  FloatingPlayer:
+    type: service
+    service_name: build
+    display_name: FloatingPlayer
+    settings:
+      template_config_id: 54176
+      bdl_scheme: FloatingPlayer
+      bdl_demo_path: FloatingPlayer
+
+  LiveStreaming:
+    type: service
+    service_name: build
+    display_name: LiveStreaming
+    settings:
+      template_config_id: 54176
+      bdl_scheme: LiveStreaming
+      bdl_demo_path: LiveStreaming
+
+  Player:
+    type: service
+    service_name: build
+    display_name: Player
+    settings:
+      template_config_id: 54176
+      bdl_scheme: Player
+      bdl_demo_path: Player
+

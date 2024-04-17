@@ -1,6 +1,6 @@
 # Uncomment the next line to define a global platform for your project
 
-source 'https://github.com/cocoapods/Specs.git'
+source 'https://cdn.cocoapods.org'
 source 'https://github.com/volcengine/volcengine-specs.git'
 
 platform :ios, '11.0'
