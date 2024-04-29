@@ -118,11 +118,13 @@
 			buildConfigurationList = 2BD2D9A827D9ED500029138B /* Build configuration list for PBXNativeTarget "SimpleViewer" */;
 			buildPhases = (
 				E69D1598642FDAFE250873DB /* [CP] Check Pods Manifest.lock */,
+				2F7FD6526F93080EA377FDD1 /* [CP-User] Hummer-before-hooks */,
 				2BD2D97527D9ED4E0029138B /* Sources */,
 				2BD2D97627D9ED4E0029138B /* Frameworks */,
 				2BD2D97727D9ED4E0029138B /* Resources */,
 				B45AFD3FA7F443CBF17CAF90 /* [CP] Embed Pods Frameworks */,
 				5FEE5B9E72261207F62407B8 /* [CP] Copy Pods Resources */,
+				E11DF3F685AD1DF217967B2B /* [CP-User] Hummer-after-hooks */,
 			);
 			buildRules = (
 			);
@@ -179,6 +181,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2F7FD6526F93080EA377FDD1 /* [CP-User] Hummer-before-hooks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "[CP-User] Hummer-before-hooks";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -f \"${PODS_ROOT}/hummer_before_hooks.sh\" ];then\n  bash \"${PODS_ROOT}/hummer_before_hooks.sh\"\nfi\n";
+		};
 		5FEE5B9E72261207F62407B8 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -212,6 +224,16 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SimpleViewer/Pods-SimpleViewer-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		E11DF3F685AD1DF217967B2B /* [CP-User] Hummer-after-hooks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "[CP-User] Hummer-after-hooks";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -f \"${PODS_ROOT}/hummer_after_hooks.sh\" ];then\n  bash \"${PODS_ROOT}/hummer_after_hooks.sh\"\nfi\n";
 		};
 		E69D1598642FDAFE250873DB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

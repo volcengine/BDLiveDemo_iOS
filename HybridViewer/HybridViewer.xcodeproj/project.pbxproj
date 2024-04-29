@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		26E0248BD02607438A3E1C55 /* Pods_HybridViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8548D27423E3B835FAC2D3D /* Pods_HybridViewer.framework */; };
 		48643D61283E5A70003F1502 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 48643D60283E5A70003F1502 /* AppDelegate.m */; };
 		48643D64283E5A70003F1502 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 48643D63283E5A70003F1502 /* SceneDelegate.m */; };
 		48643D67283E5A70003F1502 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48643D66283E5A70003F1502 /* ViewController.m */; };
@@ -15,6 +14,7 @@
 		48643D6C283E5A72003F1502 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48643D6B283E5A72003F1502 /* Assets.xcassets */; };
 		48643D6F283E5A72003F1502 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48643D6D283E5A72003F1502 /* LaunchScreen.storyboard */; };
 		48643D72283E5A72003F1502 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 48643D71283E5A72003F1502 /* main.m */; };
+		98E5E87D98D1CB9CF74C2E29 /* libPods-HybridViewer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96016273E903D809856492DA /* libPods-HybridViewer.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +32,7 @@
 		48643D6E283E5A72003F1502 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		48643D70283E5A72003F1502 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48643D71283E5A72003F1502 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		F8548D27423E3B835FAC2D3D /* Pods_HybridViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HybridViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		96016273E903D809856492DA /* libPods-HybridViewer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HybridViewer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,7 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26E0248BD02607438A3E1C55 /* Pods_HybridViewer.framework in Frameworks */,
+				98E5E87D98D1CB9CF74C2E29 /* libPods-HybridViewer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,7 +95,7 @@
 		982698AE330AC2F65C7325FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F8548D27423E3B835FAC2D3D /* Pods_HybridViewer.framework */,
+				96016273E903D809856492DA /* libPods-HybridViewer.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -108,11 +108,13 @@
 			buildConfigurationList = 48643D75283E5A72003F1502 /* Build configuration list for PBXNativeTarget "HybridViewer" */;
 			buildPhases = (
 				E95F4C84D12312193ECEB116 /* [CP] Check Pods Manifest.lock */,
+				3DC975308B7FD04DD6B1173B /* [CP-User] Hummer-before-hooks */,
 				48643D58283E5A70003F1502 /* Sources */,
 				48643D59283E5A70003F1502 /* Frameworks */,
 				48643D5A283E5A70003F1502 /* Resources */,
 				5F1D483BED2EAD74F6384759 /* [CP] Embed Pods Frameworks */,
 				D8C8B2651C6860713AFD92D5 /* [CP] Copy Pods Resources */,
+				78CA3F8C7DD150EFF7905CAE /* [CP-User] Hummer-after-hooks */,
 			);
 			buildRules = (
 			);
@@ -169,6 +171,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3DC975308B7FD04DD6B1173B /* [CP-User] Hummer-before-hooks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "[CP-User] Hummer-before-hooks";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -f \"${PODS_ROOT}/hummer_before_hooks.sh\" ];then\n  bash \"${PODS_ROOT}/hummer_before_hooks.sh\"\nfi\n";
+		};
 		5F1D483BED2EAD74F6384759 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -185,6 +197,16 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HybridViewer/Pods-HybridViewer-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		78CA3F8C7DD150EFF7905CAE /* [CP-User] Hummer-after-hooks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "[CP-User] Hummer-after-hooks";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -f \"${PODS_ROOT}/hummer_after_hooks.sh\" ];then\n  bash \"${PODS_ROOT}/hummer_after_hooks.sh\"\nfi\n";
 		};
 		D8C8B2651C6860713AFD92D5 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;

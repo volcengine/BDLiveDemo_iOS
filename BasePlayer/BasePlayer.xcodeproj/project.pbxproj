@@ -215,11 +215,13 @@
 			buildConfigurationList = 48AC78E62A3B0AED005DF00D /* Build configuration list for PBXNativeTarget "BasePlayer" */;
 			buildPhases = (
 				BF60DD20E74AE8FC3C9CFD8F /* [CP] Check Pods Manifest.lock */,
+				C25AC308254E675F00B55DAF /* [CP-User] Hummer-before-hooks */,
 				48AC78C92A3B0AEC005DF00D /* Sources */,
 				48AC78CA2A3B0AEC005DF00D /* Frameworks */,
 				48AC78CB2A3B0AEC005DF00D /* Resources */,
 				32FA781D362CFAF501BC61D4 /* [CP] Embed Pods Frameworks */,
 				0422923418A9E23C85BC1246 /* [CP] Copy Pods Resources */,
+				DDFAFDC6A03799E6CE4E0AE9 /* [CP-User] Hummer-after-hooks */,
 			);
 			buildRules = (
 			);
@@ -331,6 +333,26 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		C25AC308254E675F00B55DAF /* [CP-User] Hummer-before-hooks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "[CP-User] Hummer-before-hooks";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -f \"${PODS_ROOT}/hummer_before_hooks.sh\" ];then\n  bash \"${PODS_ROOT}/hummer_before_hooks.sh\"\nfi\n";
+		};
+		DDFAFDC6A03799E6CE4E0AE9 /* [CP-User] Hummer-after-hooks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "[CP-User] Hummer-after-hooks";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -f \"${PODS_ROOT}/hummer_after_hooks.sh\" ];then\n  bash \"${PODS_ROOT}/hummer_after_hooks.sh\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

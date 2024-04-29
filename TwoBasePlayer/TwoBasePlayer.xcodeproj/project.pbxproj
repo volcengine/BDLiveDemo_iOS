@@ -111,11 +111,13 @@
 			buildConfigurationList = 487121DE2BB66E7100996518 /* Build configuration list for PBXNativeTarget "TwoBasePlayer" */;
 			buildPhases = (
 				C2DAF85A13CAB69A4CE3E847 /* [CP] Check Pods Manifest.lock */,
+				7C81B842430F322547F401D7 /* [CP-User] Hummer-before-hooks */,
 				487121C12BB66E6F00996518 /* Sources */,
 				487121C22BB66E6F00996518 /* Frameworks */,
 				487121C32BB66E6F00996518 /* Resources */,
 				1F6B82D8D145D30C4D69E65E /* [CP] Embed Pods Frameworks */,
 				13E799CB4E6B32F443B2DA8B /* [CP] Copy Pods Resources */,
+				534ABF4EF8F97933464A71E9 /* [CP-User] Hummer-after-hooks */,
 			);
 			buildRules = (
 			);
@@ -206,6 +208,26 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TwoBasePlayer/Pods-TwoBasePlayer-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		534ABF4EF8F97933464A71E9 /* [CP-User] Hummer-after-hooks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "[CP-User] Hummer-after-hooks";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -f \"${PODS_ROOT}/hummer_after_hooks.sh\" ];then\n  bash \"${PODS_ROOT}/hummer_after_hooks.sh\"\nfi\n";
+		};
+		7C81B842430F322547F401D7 /* [CP-User] Hummer-before-hooks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "[CP-User] Hummer-before-hooks";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -f \"${PODS_ROOT}/hummer_before_hooks.sh\" ];then\n  bash \"${PODS_ROOT}/hummer_before_hooks.sh\"\nfi\n";
 		};
 		C2DAF85A13CAB69A4CE3E847 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

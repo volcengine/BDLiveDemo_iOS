@@ -15,28 +15,28 @@ post_install do |installer|
 end
 
 def bdlive
-  pod 'BDLive', '1.34.0', :subspecs => [
+  pod 'BDLive', '1.34.1', :subspecs => [
     'LiveStreaming',
     'ScreenShare',
   ]
 end
 
 def bdlive_no_rtc
-  pod 'BDLive', '1.34.0', :subspecs => [
+  pod 'BDLive', '1.34.1', :subspecs => [
     'LiveStreamingWithoutRTC',
     'ScreenShare', # 这个Demo有录屏，需要ScreenShare
   ]
 end
 
 def bdlive_ttsdk_static
-  pod 'BDLive', '1.34.0-static-ttsdk', :subspecs => [
+  pod 'BDLive', '1.34.1-static-ttsdk', :subspecs => [
     'LiveStreaming',
     'ScreenShare',
   ]
 end
 
 def bdlive_ttsdk_static_no_rtc
-  pod 'BDLive', '1.34.0-static-ttsdk', :subspecs => [
+  pod 'BDLive', '1.34.1-static-ttsdk', :subspecs => [
     'LiveStreamingWithoutRTC',
     'ScreenShare', # 这个Demo有录屏，需要ScreenShare
   ]
@@ -45,5 +45,5 @@ end
 target 'LiveStreaming' do
   # Comment the next line if you don't want to use dynamic frameworks
   
-  bdlive_ttsdk_static_no_rtc
+  bdlive
 end

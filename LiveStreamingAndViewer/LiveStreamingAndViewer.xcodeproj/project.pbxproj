@@ -108,11 +108,13 @@
 			buildConfigurationList = 48D1CE2828C83CF400B559CB /* Build configuration list for PBXNativeTarget "LiveStreamingAndViewer" */;
 			buildPhases = (
 				2DBB099A6EEC7FB4EDEE3A0F /* [CP] Check Pods Manifest.lock */,
+				33C7F0C12B706818F2105041 /* [CP-User] Hummer-before-hooks */,
 				48D1CE0B28C83CF200B559CB /* Sources */,
 				48D1CE0C28C83CF200B559CB /* Frameworks */,
 				48D1CE0D28C83CF200B559CB /* Resources */,
 				C5DF1A44661230E1898001F0 /* [CP] Embed Pods Frameworks */,
 				6F612362119E516ECD69F187 /* [CP] Copy Pods Resources */,
+				446615F39ECFE7D3A098A892 /* [CP-User] Hummer-after-hooks */,
 			);
 			buildRules = (
 			);
@@ -190,6 +192,26 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		33C7F0C12B706818F2105041 /* [CP-User] Hummer-before-hooks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "[CP-User] Hummer-before-hooks";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -f \"${PODS_ROOT}/hummer_before_hooks.sh\" ];then\n  bash \"${PODS_ROOT}/hummer_before_hooks.sh\"\nfi\n";
+		};
+		446615F39ECFE7D3A098A892 /* [CP-User] Hummer-after-hooks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "[CP-User] Hummer-after-hooks";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -f \"${PODS_ROOT}/hummer_after_hooks.sh\" ];then\n  bash \"${PODS_ROOT}/hummer_after_hooks.sh\"\nfi\n";
 		};
 		6F612362119E516ECD69F187 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
