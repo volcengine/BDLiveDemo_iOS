@@ -145,7 +145,7 @@ void bdld_cancel_block(bdld_dispatch_cancelable_block_t block) {
     
     [self addSubview:self.basePlayerView];
     self.basePlayerView.userInteractionEnabled = NO;
-    self.basePlayerView.scalingMode = BDLPlayerScalingModeNone;
+    self.basePlayerView.scalingMode = BDLPlayerScalingModeAspectFill;
     
     self.maskView = [[PlayerMaskView alloc] init];
     [self addSubview:self.maskView];
@@ -503,9 +503,8 @@ currentVideoResolution:(BDLVideoResolution)currentVideoResolution {
     }
 }
 
-
-- (void)basePlayerView:(BDLBasePlayerView *)basePlayerView liveLoadStateDidChange:(TVLPlayerLoadState)loadState {
-    LogContent([NSString stringWithFormat:@"直播加载状态发生了变化 %d", loadState]);
+- (void)basePlayerView:(BDLBasePlayerView *)basePlayerView liveLoadStateDidChange:(BDLPlayerLoadState)loadState {
+    LogContent([NSString stringWithFormat:@"直播加载状态发生了变化 %ld", (long)loadState]);
     switch (loadState) {
             // 这里设置弱网速, loadState 会在TVLPlayerLoadStateUnknown和TVLPlayerLoadStateError 之间切换,这里showLoadingView一下
         case TVLPlayerLoadStateUnknown:
@@ -523,7 +522,7 @@ currentVideoResolution:(BDLVideoResolution)currentVideoResolution {
 }
 
 - (void)basePlayerView:(BDLBasePlayerView *)basePlayerView livePlayerItemStatusDidChange:(TVLPlayerItemStatus)itemStatus {
-    LogContent([NSString stringWithFormat:@"直播播放状态发生了变化 %d", itemStatus]);
+    LogContent([NSString stringWithFormat:@"直播播放状态发生了变化 %ld", (long)itemStatus]);
     switch (itemStatus) {
         case TVLPlayerItemStatusCompleted:
             if (self.networkNotReachable) {
