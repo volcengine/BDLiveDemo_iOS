@@ -15,19 +15,19 @@ post_install do |installer|
 end
 
 def bdlive
-  pod 'BDLive', '1.35.0'
+  pod 'BDLive', '1.36.0'
 end
 
 def bdlive_no_rtc
-  pod 'BDLive/ViewerWithoutRTC', '1.35.0'
+  pod 'BDLive/ViewerWithoutRTC', '1.36.0'
 end
 
 def bdlive_ttsdk_static
-  pod 'BDLive', '1.35.0-static-ttsdk'
+  pod 'BDLive', '1.36.0-static-ttsdk'
 end
 
 def bdlive_ttsdk_static_no_rtc
-  pod 'BDLive/ViewerWithoutRTC', '1.35.0-static-ttsdk'
+  pod 'BDLive/ViewerWithoutRTC', '1.36.0-static-ttsdk'
 end
 
 target 'EcommerceViewer' do
