@@ -144,16 +144,16 @@
         customizeCommentView(view);
     };
     // 点击置顶评论中的URL
-    livepPullVC.config.customizeAlertController = ^__kindof UIViewController * _Nonnull(BDLLivePullViewController * _Nonnull viewController, BDLAlertController * _Nonnull controller) {
-        @weakify(controller);
-        controller.urlClickBlock = ^(NSURL * _Nonnull url) {
+    livepPullVC.config.customizePopupTopCommentView = ^__kindof UIView<BDLPopupBottomShowViewProtocol> * _Nonnull(BDLLivePullViewController * _Nonnull viewController, BDLPopupTopCommentView * _Nonnull popupTopCommentView) {
+        @weakify(popupTopCommentView);
+        popupTopCommentView.urlClickBlock = ^(NSURL * _Nonnull url) {
             @strongify(self);
-            @strongify(controller);
-            [controller dismissAlertControllerAnimated:YES completion:^{
+            @strongify(popupTopCommentView);
+            [popupTopCommentView hideWithCompletion:^(BDLPopupBaseView * _Nonnull view) {
                 [self showWebViewControllerWithURL:url];
             }];
         };
-        return controller;
+        return popupTopCommentView;
     };
     livepPullVC.config.customizeMenuBarView = ^(BDLLivePullViewController * _Nonnull viewController, BDLMenuBarView * _Nonnull view) {
         view.cardViewTappedBlock = ^(NSString * _Nullable urlStr, BOOL enableFloating) {
