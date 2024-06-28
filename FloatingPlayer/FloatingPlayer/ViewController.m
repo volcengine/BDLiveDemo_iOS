@@ -120,7 +120,7 @@
         };
         
         floatingController.customizeUpperAdView = ^__kindof BDLBaseView * _Nullable(BDLFloatingController * _Nonnull floatingController, BDLUpperAdView * _Nonnull view) {
-            view.viewTappedBlock = ^(NSString * _Nullable urlStr) {
+            view.viewTappedBlock = ^(NSString * _Nullable urlStr, BOOL enableFloating) {
                 @strongify(self);
                 if (!self) {
                     return;
