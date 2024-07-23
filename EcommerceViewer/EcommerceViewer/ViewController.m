@@ -21,6 +21,7 @@
 #import "WebViewController.h"
 
 #import <BDLive/BDLive.h>
+#import <YYCategories/YYCategories.h>
 
 @interface ViewController () <BDLLivePullViewControllerDelegate, BDLLivePullViewControllerActionProvider, BDLFloatingPlayerDelegate, BDLLoginProvider>
 

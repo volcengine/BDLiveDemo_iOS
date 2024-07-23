@@ -22,6 +22,7 @@
 #import "ViewController.h"
 #import <Masonry/Masonry.h>
 #import <BDLive/BDLive.h>
+#import <YYCategories/YYCategories.h>
 
 @interface ViewController () <BDLLivePullViewControllerDelegate, BDLLivePullViewControllerActionProvider, BDLFloatingPlayerDelegate>
 
