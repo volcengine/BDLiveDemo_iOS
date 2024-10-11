@@ -75,15 +75,8 @@
 
 
 - (void)setupBDLive {
-    // 设置注册，用于公开模式时候注册
-    __weak typeof(self) weakSelf = self;
-    [self.svc setRegisterBlock:^{
-        if (!weakSelf.registerController) {
-            weakSelf.registerController = [[BDLRegisterController alloc] init];
-            weakSelf.registerController.popupSuperView = weakSelf.view;
-        }
-        [weakSelf.registerController startRegister];
-    }];
+    // 设置注册，用于公开模式时候注册弹窗显示
+    [self.svc getRegisterController].popupSuperView = self.view;
 }
 
 - (void)setupViews {

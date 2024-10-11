@@ -3,7 +3,7 @@
 企业直播在 GitHub 上提供开源示例项目 BDLiveDemo_iOS 用于演示如何集成和使用企业直播 aPaaS SDK。该项目包含以下 Demo：
 
 - `SimpleViewer`: 演示了如何通过少量代码接入完整直播间。
-- `Player`: 演示了如何接入播放器组件。
+- `Player`: 演示了如何接入播放器组件和连麦组件。
 - `PlayerHD`: 演示了在 iPad 上接入播放器组件的多种布局方式。
 - `FloatingPlayer`: 演示了如何接入支持画中画功能的播放器组件。在这个 Demo 中，观众可以不进入直播间页面就查看画中画效果。
 - `HybridViewer`: 演示了如何使用观播 SDK 配合您的业务 UI，搭建定制化的直播间。
