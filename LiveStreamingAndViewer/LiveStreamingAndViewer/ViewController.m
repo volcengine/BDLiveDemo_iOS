@@ -159,8 +159,8 @@
     else {
         self.viewerDirectionControl.hidden = NO;
         self.secondHintLabel.text = @"Token";
-        self.firstInputTextField.text = @"1678089977360392";
-        self.secondInputTextField.text = @"JQCFns";
+        self.firstInputTextField.text = @"1794755538574419";
+        self.secondInputTextField.text = @"UoMdEG";
     }
 }
 

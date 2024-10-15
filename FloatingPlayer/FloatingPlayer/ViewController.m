@@ -38,8 +38,8 @@
     [super viewDidLoad];
     
     self.activity = [[BDLActivity alloc] init];
-    self.activity.activityId = @(1678089977360392);
-    self.activity.token = @"JQCFns";
+    self.activity.activityId = @(1794755538574419);
+    self.activity.token = @"UoMdEG";
     self.activity.authMode = BDLActivityAuthModePublic;
     self.activity.isPortrait = YES;
 }
@@ -95,16 +95,17 @@
 
 - (void)configLivePullVC {
     @weakify(self);
-    self.livePullVC.config.customizeMenuBarView = ^(BDLLivePullViewController * _Nonnull viewController, BDLMenuBarView * _Nonnull view) {
-        view.customizeCardView = ^__kindof BDLBaseView * _Nullable(BDLMenuBarView * _Nonnull view, BDLCardView * _Nonnull cardView) {
-            cardView.viewTappedBlock = ^(NSString * _Nullable urlStr, BOOL enableFloating) {
+
+    self.livePullVC.config.customShoppingCardController = ^(BDLLivePullViewController * _Nonnull viewController, BDLShoppingCardController * _Nonnull shoppingCardController) {
+        shoppingCardController.customizeShoppingCardView = ^__kindof BDLBaseView * _Nullable(BDLShoppingCardController * _Nonnull controller, BDLShoppingCardView * _Nonnull shoppingCardView) {
+            shoppingCardView.cardViewTappedBlock = ^(NSString * _Nullable urlStr, BOOL enableFloating) {
                 @strongify(self);
                 if (!self) {
                     return;
                 }
                 [self.livePullVC close:YES];
             };
-            return cardView;
+            return shoppingCardView;
         };
     };
     

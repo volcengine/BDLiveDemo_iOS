@@ -71,9 +71,6 @@
     self.tagLabel.hidden = YES;
     [self addSubview:self.tagLabel];
     
-    self.popularityView = [[BDLPopularityView alloc] initWithPortrait:NO];
-    [self addSubview:self.popularityView];
-    
     self.promptContainerView = [[UIView alloc] init];
     self.promptContainerView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.6];
     self.promptContainerView.layer.cornerRadius = 18;
@@ -100,11 +97,6 @@
         make.top.equalTo(self.mas_top).offset(10);
         make.right.equalTo(self.mas_right).offset(-57);
         make.size.mas_equalTo(CGSizeMake(37, 22));
-    }];
-    [self.popularityView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.mas_top).offset(8);
-        make.left.equalTo(self.mas_left).offset(8);
-        make.height.mas_equalTo(18);
     }];
     
     [self.promptContainerView mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -67,7 +67,7 @@
     [self.view addSubview:self.firstInputTextField];
     self.firstInputTextField.layer.borderColor = [UIColor systemGrayColor].CGColor;
     self.firstInputTextField.layer.borderWidth = 1;
-    self.firstInputTextField.text = @"1678089977360392";
+    self.firstInputTextField.text = @"1794755538574419";
     [self.firstInputTextField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.firstHintLabel.mas_right).offset(10);
         make.right.equalTo(self.view).offset(-14);
@@ -79,7 +79,7 @@
     [self.view addSubview:self.secondInputTextField];
     self.secondInputTextField.layer.borderColor = [UIColor systemGrayColor].CGColor;
     self.secondInputTextField.layer.borderWidth = 1;
-    self.secondInputTextField.text = @"JQCFns";
+    self.secondInputTextField.text = @"UoMdEG";
     [self.secondInputTextField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.secondHintLabel.mas_right).offset(10);
         make.right.equalTo(self.view).offset(-14);

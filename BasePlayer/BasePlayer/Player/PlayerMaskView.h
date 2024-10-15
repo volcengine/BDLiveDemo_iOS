@@ -31,7 +31,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIView *promptContainerView;
 @property (nonatomic, strong, nullable) UIImageView *watermarkImageView;
 @property (nonatomic, strong, nullable) UILabel *tagLabel;
-@property (nonatomic, strong, nullable) BDLPopularityView *popularityView;
 
 - (BOOL)startFloating;
 - (void)stopFloating;

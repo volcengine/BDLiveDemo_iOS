@@ -36,8 +36,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.activityIDTextField.text = @"1678089977360392";
-    self.tokenTextField.text = @"JQCFns";
+    self.activityIDTextField.text = @"1794755538574419";
+    self.tokenTextField.text = @"UoMdEG";
 }
 
 - (IBAction)joinRoomAction:(UIButton *)sender {

@@ -124,15 +124,15 @@
 }
 
 - (void)getAndShowLivePullVCWithBasePlayer:(BDLBasePlayerView * _Nullable)basePlayerView {
-    BDLLivePullViewController *livepPullVC = [[BDLLiveEngine sharedInstance] getLivePullViewControllerWithBasePlayerView:basePlayerView];
-    livepPullVC.delegate = self;
-    livepPullVC.actionProvider = self;
-    self.livePullViewController = livepPullVC;
-    [self configLivePullViewController:livepPullVC];
-    [self showLivePullVC:livepPullVC];
+    BDLLivePullViewController *livePullVC = [[BDLLiveEngine sharedInstance] getLivePullViewControllerWithBasePlayerView:basePlayerView];
+    livePullVC.delegate = self;
+    livePullVC.actionProvider = self;
+    self.livePullViewController = livePullVC;
+    [self configLivePullViewController:livePullVC];
+    [self showLivePullVC:livePullVC];
 }
 
-- (void)configLivePullViewController:(BDLLivePullViewController *)livepPullVC {
+- (void)configLivePullViewController:(BDLLivePullViewController *)livePullVC {
     @weakify(self)
     void (^customizeCommentView)(BDLCommentView *view) = ^(BDLCommentView *view) {
         view.urlClickBlock = ^(__kindof BDLCommentBaseView * _Nonnull commentView, BDLCommentModel * _Nonnull comment, NSURL * _Nonnull url) {
@@ -141,11 +141,11 @@
         };
     };
     // 竖屏评论区
-    livepPullVC.config.customizeCommentView = ^(BDLLivePullViewController * _Nonnull viewController, BDLCommentView * _Nonnull view) {
+    livePullVC.config.customizeCommentView = ^(BDLLivePullViewController * _Nonnull viewController, BDLCommentView * _Nonnull view) {
         customizeCommentView(view);
     };
     // 点击置顶评论中的URL
-    livepPullVC.config.customizePopupTopCommentView = ^__kindof UIView<BDLPopupBottomShowViewProtocol> * _Nonnull(BDLLivePullViewController * _Nonnull viewController, BDLPopupTopCommentView * _Nonnull popupTopCommentView) {
+    livePullVC.config.customizePopupTopCommentView = ^__kindof UIView<BDLPopupBottomShowViewProtocol> * _Nonnull(BDLLivePullViewController * _Nonnull viewController, BDLPopupTopCommentView * _Nonnull popupTopCommentView) {
         @weakify(popupTopCommentView);
         popupTopCommentView.urlClickBlock = ^(NSURL * _Nonnull url) {
             @strongify(self);
@@ -156,30 +156,33 @@
         };
         return popupTopCommentView;
     };
-    livepPullVC.config.customizeMenuBarView = ^(BDLLivePullViewController * _Nonnull viewController, BDLMenuBarView * _Nonnull view) {
-        view.cardViewTappedBlock = ^(NSString * _Nullable urlStr, BOOL enableFloating) {
-            // 在这里实现打开商品页面的逻辑
-            @strongify(self);
-            [self showProductViewController];
+    livePullVC.config.customShoppingCardController = ^(BDLLivePullViewController * _Nonnull viewController, BDLShoppingCardController * _Nonnull shoppingCardController) {
+        shoppingCardController.customizeShoppingCardView = ^__kindof BDLBaseView * _Nullable(BDLShoppingCardController * _Nonnull controller, BDLShoppingCardView * _Nonnull shoppingCardView) {
+            shoppingCardView.cardViewTappedBlock = ^(NSString * _Nullable urlStr, BOOL enableFloating) {
+                // 在这里实现打开商品页面的逻辑
+                @strongify(self);
+                [self showProductViewController];
+            };
+
+            // 自定义商品卡片高度
+            [shoppingCardView mas_updateConstraints:^(MASConstraintMaker *make) {
+                // 这里更新高度为屏幕高度的3/4
+                make.height.mas_equalTo(CGRectGetHeight(UIScreen.mainScreen.bounds) * 3 / 4);
+            }];
+            return shoppingCardView;
         };
+    };
+    livePullVC.config.customizeMenuBarView = ^(BDLLivePullViewController * _Nonnull viewController, BDLMenuBarView * _Nonnull view) {
         // 横屏评论区
         view.customizeCommentView = ^(BDLMenuBarView * _Nonnull view, BDLCommentView * _Nonnull commentView) {
             customizeCommentView(commentView);
         };
-
-        // 自定义商品卡片高度
-        if (view.filterOption & BDLMenuFilterOptionCard) {
-            [view mas_updateConstraints:^(MASConstraintMaker *make) {
-                // 这里更新高度为屏幕高度的3/4
-                make.height.mas_equalTo(CGRectGetHeight(UIScreen.mainScreen.bounds) * 3 / 4);
-            }];
-        }
     };
-    livepPullVC.config.shouldShowInAppPipIfAvailable = ^BOOL(BDLLivePullViewController * _Nonnull viewController, BDLActivityStatus status, BOOL isClose) {
+    livePullVC.config.shouldShowInAppPipIfAvailable = ^BOOL(BDLLivePullViewController * _Nonnull viewController, BDLActivityStatus status, BOOL isClose) {
         return YES;
     };
-    livepPullVC.config.autoCloseFloatingPlayerWhenAppear = YES;
-    livepPullVC.onFloatingPlayerCloseTapped = ^BOOL(BDLLivePullViewController * _Nonnull viewController, BDLFloatingPlayer * _Nonnull floatingPlayer) {
+    livePullVC.config.autoCloseFloatingPlayerWhenAppear = YES;
+    livePullVC.onFloatingPlayerCloseTapped = ^BOOL(BDLLivePullViewController * _Nonnull viewController, BDLFloatingPlayer * _Nonnull floatingPlayer) {
         if (viewController.navigationController) {
             // 如果 完整直播间 在 navigationController 里面，则只关闭浮窗
             [viewController hideFloatingPlayerIfAvailable:NO];
@@ -192,7 +195,7 @@
     };
     
     // 自定义完整直播间关闭按钮为返回左箭头icon
-    livepPullVC.config.customizeCloseButton = ^__kindof UIButton * _Nullable(BDLLivePullViewController * _Nonnull viewController, UIButton * _Nonnull button) {
+    livePullVC.config.customizeCloseButton = ^__kindof UIButton * _Nullable(BDLLivePullViewController * _Nonnull viewController, UIButton * _Nonnull button) {
         // 这里自定义边框并增加圆角
         button.clipsToBounds = YES;
         button.layer.cornerRadius = 3;
@@ -206,7 +209,7 @@
     };
     
     // 自定义完整直播间的约束
-    livepPullVC.config.customizeViewConstraints = ^(BDLLivePullViewController * _Nonnull viewController) {
+    livePullVC.config.customizeViewConstraints = ^(BDLLivePullViewController * _Nonnull viewController) {
         @strongify(self);
         // 这里只在竖屏模式下自定义返回按钮位置
         if (viewController.isPortrait) {
@@ -225,7 +228,7 @@
     };
     
     // 自定义完整直播间中的浮窗
-    livepPullVC.config.customFloatingController = ^(BDLLivePullViewController * _Nonnull viewController, BDLFloatingController * _Nonnull floatingController) {
+    livePullVC.config.customFloatingController = ^(BDLLivePullViewController * _Nonnull viewController, BDLFloatingController * _Nonnull floatingController) {
         floatingController.openUrlBlock = ^(BDLFloatingController * _Nonnull floatingController, NSURL * _Nonnull url, BOOL isFloatingEnable) {
             // 在这里实现打开商品页面的逻辑
             @strongify(self);

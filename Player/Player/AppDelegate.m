@@ -41,7 +41,7 @@
 
 - (void)initTTSDK {
     TTSDKConfiguration *configuration = [TTSDKConfiguration defaultConfigurationWithAppID:@"<#AppID#>"];
-    configuration.bundleID = @"<#bundleID#>";
+    configuration.bundleID = NSBundle.mainBundle.bundleIdentifier;
     configuration.appName = @"Player";
     configuration.channel = @"App Store";
     // 点播

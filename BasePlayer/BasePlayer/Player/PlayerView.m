@@ -74,7 +74,6 @@ void bdld_cancel_block(bdld_dispatch_cancelable_block_t block) {
 @property (nonatomic, assign) BDLActivityStatus status;
 @property (nonatomic, assign) BDLLanguageType langType;
 @property (nonatomic, copy) NSArray<NSNumber *> *langTypes;
-@property (nonatomic, assign) BOOL isPopularityEnabled;
 
 @property (nonatomic, assign) BOOL isFetchVodUrlFailed;
 @property (nonatomic, assign, readwrite) BOOL isPiPStarted;
@@ -209,7 +208,6 @@ void bdld_cancel_block(bdld_dispatch_cancelable_block_t block) {
     // 因为以下调用内部使用delegate，但此时init未执行完毕，delegate还未赋值，所以延后执行
     dispatch_async(dispatch_get_main_queue(), ^{
         [self activityStatusDidChange:basicModel.status];
-        [self popularityDidChange:model.virtualPeopleCount isEnabled:basicModel.isPeopleCountEnable];
     });
 }
 
@@ -724,7 +722,6 @@ currentVideoResolution:(BDLVideoResolution)currentVideoResolution {
 
 - (void)showControlViewIfNeededWithAutoHide:(BOOL)autoHide {
     BOOL isAppear = [self.controlView showIfNeeded];
-    [self showOrHidePopularityViewIfNeeded];
     if (autoHide) {
         [self autoHideControlView];
     } else {
@@ -737,7 +734,6 @@ currentVideoResolution:(BDLVideoResolution)currentVideoResolution {
 - (void)hideControlView {
     [self removePlayerTimeObserver];
     [self.controlView hide];
-    [self showOrHidePopularityViewIfNeeded];
     [self controlViewIsAppear:NO];
 }
 
@@ -848,7 +844,6 @@ currentVideoResolution:(BDLVideoResolution)currentVideoResolution {
         }
     }
     self.isFullScreen = isSelected;
-    [self showOrHidePopularityViewIfNeeded];
 
     [self hideResolutionView];
 
@@ -1322,26 +1317,6 @@ currentVideoResolution:(BDLVideoResolution)currentVideoResolution {
 
 - (void)languageTypeDidChange:(BDLLanguageType)langType {
     self.langType = langType;
-}
-
-#pragma mark - BDLPopularityView
-
-- (BOOL)showOrHidePopularityViewIfNeeded {
-    if (!self.isPopularityEnabled
-        || self.isFloating
-        || (self.isFullScreen && ![self.controlView isHidden])) {
-        self.maskView.popularityView.hidden = YES;
-        return YES;
-    }
-    self.maskView.popularityView.hidden = NO;
-    return NO;
-}
-
-#pragma mark - BDLPopularityService
-
-- (void)popularityDidChange:(NSNumber *)peopleCount isEnabled:(BOOL)isEnabled {
-    self.isPopularityEnabled = isEnabled;
-    [self showOrHidePopularityViewIfNeeded];
 }
 
 #pragma mark - BDLBasicService

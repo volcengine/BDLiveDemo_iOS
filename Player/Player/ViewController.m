@@ -53,8 +53,8 @@
 
 - (void)joinLiveRoom {
     BDLActivity *activity = [[BDLActivity alloc] init];
-    activity.activityId = @(1678089977360392);
-    activity.token = @"JQCFns";
+    activity.activityId = @(1794755538574419);
+    activity.token = @"UoMdEG";
     activity.authMode = BDLActivityAuthModePublic;
     activity.isPortrait = NO;
     [[BDLLiveEngine sharedInstance] joinLiveRoomWithActivity:activity success:^{
