@@ -118,7 +118,8 @@
     };
     
 #if __has_include(<BDLive/BDLAudienceLinkController.h>)
-    if ([self.audienceLinkController getCurrentAudienceLinkState] == BDLAudienceLinkStateLinked) {
+    BDLAudienceLinkState state = [self.audienceLinkController getCurrentAudienceLinkState];
+    if (state == BDLAudienceLinkStateLinked) {
         BDLAudienceLinkExitWarningView *view = [[BDLAudienceLinkExitWarningView alloc] init];
         [view bottomShowInView:self.view completion:^(BDLPopupBaseView * _Nonnull view) {
                     
@@ -135,6 +136,12 @@
         view.onBackgroundTapCallback = ^(BDLPopupBaseView * _Nonnull view) {
             [view hideWithCompletion:nil];
         };
+    }
+    else if (state != BDLAudienceLinkStateUnknown
+             && state != BDLAudienceLinkStateUnlinked) { // 此时应该是处于，发起了连麦申请，但是主持人还未同意的状态，需要 取消连麦
+        [self.audienceLinkController cancelAudienceLink:^{
+            leave();
+        }];
     }
     else {
         leave();
