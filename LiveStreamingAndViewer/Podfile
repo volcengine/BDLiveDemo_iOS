@@ -17,28 +17,28 @@ post_install do |installer|
 end
 
 def bdlive
-  pod 'BDLive', '1.47.1', :subspecs => [
+  pod 'BDLive', '1.47.3', :subspecs => [
     'LiveStreaming',
     'Viewer',
   ]
 end
 
 def bdlive_no_rtc
-  pod 'BDLive', '1.47.1', :subspecs => [
+  pod 'BDLive', '1.47.3', :subspecs => [
     'LiveStreamingWithoutRTC',
     'ViewerWithoutRTC',
   ]
 end
 
 def bdlive_ttsdk_static
-  pod 'BDLive', '1.47.1-static-ttsdk', :subspecs => [
+  pod 'BDLive', '1.47.3-static-ttsdk', :subspecs => [
     'LiveStreaming',
     'Viewer',
   ]
 end
 
 def bdlive_ttsdk_static_no_rtc
-  pod 'BDLive', '1.47.1-static-ttsdk', :subspecs => [
+  pod 'BDLive', '1.47.3-static-ttsdk', :subspecs => [
     'LiveStreamingWithoutRTC',
     'ViewerWithoutRTC',
   ]
