@@ -108,13 +108,11 @@
 			buildConfigurationList = 48643D75283E5A72003F1502 /* Build configuration list for PBXNativeTarget "HybridViewer" */;
 			buildPhases = (
 				E95F4C84D12312193ECEB116 /* [CP] Check Pods Manifest.lock */,
-				3DC975308B7FD04DD6B1173B /* [CP-User] Hummer-before-hooks */,
 				48643D58283E5A70003F1502 /* Sources */,
 				48643D59283E5A70003F1502 /* Frameworks */,
 				48643D5A283E5A70003F1502 /* Resources */,
 				5F1D483BED2EAD74F6384759 /* [CP] Embed Pods Frameworks */,
 				D8C8B2651C6860713AFD92D5 /* [CP] Copy Pods Resources */,
-				78CA3F8C7DD150EFF7905CAE /* [CP-User] Hummer-after-hooks */,
 			);
 			buildRules = (
 			);
@@ -171,16 +169,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3DC975308B7FD04DD6B1173B /* [CP-User] Hummer-before-hooks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			name = "[CP-User] Hummer-before-hooks";
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [ -f \"${PODS_ROOT}/hummer_before_hooks.sh\" ];then\n  bash \"${PODS_ROOT}/hummer_before_hooks.sh\"\nfi\n";
-		};
 		5F1D483BED2EAD74F6384759 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -197,16 +185,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HybridViewer/Pods-HybridViewer-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		78CA3F8C7DD150EFF7905CAE /* [CP-User] Hummer-after-hooks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			name = "[CP-User] Hummer-after-hooks";
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [ -f \"${PODS_ROOT}/hummer_after_hooks.sh\" ];then\n  bash \"${PODS_ROOT}/hummer_after_hooks.sh\"\nfi\n";
 		};
 		D8C8B2651C6860713AFD92D5 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;

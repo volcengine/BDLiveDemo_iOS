@@ -141,8 +141,8 @@
         };
     };
     // 竖屏评论区
-    livePullVC.config.customizeCommentView = ^(BDLLivePullViewController * _Nonnull viewController, BDLCommentView * _Nonnull view) {
-        customizeCommentView(view);
+    livePullVC.config.customizeCommentAndNoticeView = ^(BDLLivePullViewController * _Nonnull viewController, BDLCommentAndNoticeView * _Nonnull view) {
+        customizeCommentView(view.commentView);
     };
     // 点击置顶评论中的URL
     livePullVC.config.customizePopupTopCommentView = ^__kindof UIView<BDLPopupBottomShowViewProtocol> * _Nonnull(BDLLivePullViewController * _Nonnull viewController, BDLPopupTopCommentView * _Nonnull popupTopCommentView) {
@@ -174,8 +174,8 @@
     };
     livePullVC.config.customizeMenuBarView = ^(BDLLivePullViewController * _Nonnull viewController, BDLMenuBarView * _Nonnull view) {
         // 横屏评论区
-        view.customizeCommentView = ^(BDLMenuBarView * _Nonnull view, BDLCommentView * _Nonnull commentView) {
-            customizeCommentView(commentView);
+        view.customizeCommentAndNoticeView = ^(BDLMenuBarView * _Nonnull view, BDLCommentAndNoticeView * _Nonnull commentAndNoticeView) {
+            customizeCommentView(commentAndNoticeView.commentView);
         };
     };
     livePullVC.config.shouldShowInAppPipIfAvailable = ^BOOL(BDLLivePullViewController * _Nonnull viewController, BDLActivityStatus status, BOOL isClose) {

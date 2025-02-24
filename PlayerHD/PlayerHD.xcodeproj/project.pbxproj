@@ -118,13 +118,11 @@
 			buildConfigurationList = 48FEB25C28DD64700051A541 /* Build configuration list for PBXNativeTarget "PlayerHD" */;
 			buildPhases = (
 				7F9F94C136D02815847583AB /* [CP] Check Pods Manifest.lock */,
-				E07D2B06F677593B849324C8 /* [CP-User] Hummer-before-hooks */,
 				48FEB23F28DD646E0051A541 /* Sources */,
 				48FEB24028DD646E0051A541 /* Frameworks */,
 				48FEB24128DD646E0051A541 /* Resources */,
 				FEDBC929DED51E53131CC291 /* [CP] Embed Pods Frameworks */,
 				5959E101EEFB8FD7912CC96C /* [CP] Copy Pods Resources */,
-				328A574332F548281C8F6771 /* [CP-User] Hummer-after-hooks */,
 			);
 			buildRules = (
 			);
@@ -181,16 +179,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		328A574332F548281C8F6771 /* [CP-User] Hummer-after-hooks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			name = "[CP-User] Hummer-after-hooks";
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [ -f \"${PODS_ROOT}/hummer_after_hooks.sh\" ];then\n  bash \"${PODS_ROOT}/hummer_after_hooks.sh\"\nfi\n";
-		};
 		5959E101EEFB8FD7912CC96C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -229,16 +217,6 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
-		};
-		E07D2B06F677593B849324C8 /* [CP-User] Hummer-before-hooks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			name = "[CP-User] Hummer-before-hooks";
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [ -f \"${PODS_ROOT}/hummer_before_hooks.sh\" ];then\n  bash \"${PODS_ROOT}/hummer_before_hooks.sh\"\nfi\n";
 		};
 		FEDBC929DED51E53131CC291 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

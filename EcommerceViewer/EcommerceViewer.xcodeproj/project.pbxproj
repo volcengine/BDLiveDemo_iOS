@@ -123,13 +123,11 @@
 			buildConfigurationList = 2B64FB2E2B1882500081445E /* Build configuration list for PBXNativeTarget "EcommerceViewer" */;
 			buildPhases = (
 				B27811E98B5BA84ED597EE11 /* [CP] Check Pods Manifest.lock */,
-				0F8784B148BF2AB78A6A7794 /* [CP-User] Hummer-before-hooks */,
 				2B64FB112B18824D0081445E /* Sources */,
 				2B64FB122B18824D0081445E /* Frameworks */,
 				2B64FB132B18824D0081445E /* Resources */,
 				EDC67A48BB1B8905CA90DD53 /* [CP] Embed Pods Frameworks */,
 				05944405B0D55A2A4AF5E046 /* [CP] Copy Pods Resources */,
-				46EAF63141176D4F37D78619 /* [CP-User] Hummer-after-hooks */,
 			);
 			buildRules = (
 			);
@@ -202,26 +200,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EcommerceViewer/Pods-EcommerceViewer-resources.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		0F8784B148BF2AB78A6A7794 /* [CP-User] Hummer-before-hooks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			name = "[CP-User] Hummer-before-hooks";
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [ -f \"${PODS_ROOT}/hummer_before_hooks.sh\" ];then\n  bash \"${PODS_ROOT}/hummer_before_hooks.sh\"\nfi\n";
-		};
-		46EAF63141176D4F37D78619 /* [CP-User] Hummer-after-hooks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			name = "[CP-User] Hummer-after-hooks";
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [ -f \"${PODS_ROOT}/hummer_after_hooks.sh\" ];then\n  bash \"${PODS_ROOT}/hummer_after_hooks.sh\"\nfi\n";
 		};
 		B27811E98B5BA84ED597EE11 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
