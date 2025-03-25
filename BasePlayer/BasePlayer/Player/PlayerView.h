@@ -55,7 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, readonly, nullable) BDLBasePlayerView *basePlayerView;
 
 // 以下view如无自定义的需求，可以直接使用 BDLxxxView
-@property (nonatomic, strong) PlayerMaskView *maskView;
+@property (nonatomic, strong) PlayerMaskView *playerMaskView;
 @property (nonatomic, strong) PlayerControlView *controlView;
 @property (nonatomic, strong, nullable) PlayerResolutionView *resolutionView;
 @property (nonatomic, strong, nullable) PlayerSpeedView *speedView;

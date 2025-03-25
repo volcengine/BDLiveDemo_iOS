@@ -146,9 +146,9 @@ void bdld_cancel_block(bdld_dispatch_cancelable_block_t block) {
     self.basePlayerView.userInteractionEnabled = NO;
     self.basePlayerView.scalingMode = BDLPlayerScalingModeAspectFill;
     
-    self.maskView = [[PlayerMaskView alloc] init];
-    [self addSubview:self.maskView];
-    self.maskView.userInteractionEnabled = NO;
+    self.playerMaskView = [[PlayerMaskView alloc] init];
+    [self addSubview:self.playerMaskView];
+    self.playerMaskView.userInteractionEnabled = NO;
     [self setupControlView];
     
     self.singleGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onSelfSingleTap:)];
@@ -185,7 +185,7 @@ void bdld_cancel_block(bdld_dispatch_cancelable_block_t block) {
     [self.basePlayerView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self);
     }];
-    [self.maskView mas_remakeConstraints:^(MASConstraintMaker *make) {
+    [self.playerMaskView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self);
     }];
 }
@@ -679,7 +679,7 @@ currentVideoResolution:(BDLVideoResolution)currentVideoResolution {
 
 #pragma mark - PlayerMaskViewDelegate
 
-- (void)onSelfSingleTap:(UITapGestureRecognizer *)maskView {
+- (void)onSelfSingleTap:(UITapGestureRecognizer *)playerMaskView {
     if (!self.isFloating) {
         if (self.controlView.hidden) {
             [self showControlViewIfNeededWithAutoHide:YES];
@@ -828,7 +828,7 @@ currentVideoResolution:(BDLVideoResolution)currentVideoResolution {
     [[LogManager sharedInstance] log:@"控制栏点击" content:isSelected ? @"点击了全屏按钮" : @"点击了退出全屏"];
 //    return;
     if (isSelected) {
-        [self.maskView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        [self.playerMaskView mas_remakeConstraints:^(MASConstraintMaker *make) {
             if (@available(iOS 11.0, *)) {
                 make.left.equalTo(self.mas_safeAreaLayoutGuideLeft);
                 make.right.equalTo(self.mas_safeAreaLayoutGuideRight);
@@ -1010,7 +1010,7 @@ currentVideoResolution:(BDLVideoResolution)currentVideoResolution {
             make.size.mas_equalTo(CGSizeMake(20, 20));
         }];
         
-        [self insertSubview:self.loadingView belowSubview:self.maskView];
+        [self insertSubview:self.loadingView belowSubview:self.playerMaskView];
     }
     return _loadingView;
 }
@@ -1020,7 +1020,7 @@ currentVideoResolution:(BDLVideoResolution)currentVideoResolution {
         return;
     }
     [self hidePromptViews];
-    [self insertSubview:self.loadingView belowSubview:self.maskView];
+    [self insertSubview:self.loadingView belowSubview:self.playerMaskView];
     [self.loadingView mas_remakeConstraints:^(MASConstraintMaker *make) {
         if (self.basePlayerView.videoView != nil && self.basePlayerView.superview == self) {
             make.center.equalTo(self.basePlayerView);
