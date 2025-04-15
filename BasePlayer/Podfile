@@ -34,5 +34,5 @@ target 'BasePlayer' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
  
-  bdlive_ttsdk_static_no_rtc
+  bdlive_ttsdk_static
 end

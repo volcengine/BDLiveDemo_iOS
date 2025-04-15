@@ -36,5 +36,5 @@ target 'HybridViewer' do
   
   pod 'Masonry'
   
-  bdlive_ttsdk_static
+  bdlive
 end

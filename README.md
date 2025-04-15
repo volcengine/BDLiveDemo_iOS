@@ -56,7 +56,7 @@ pod install
 
 ![simpleviewer_info.png](./images/simpleviewer_info.png)
 
-7. 在 SimpleViewer/AppDelegate.m 文件中，修改 -initTTSDK 方法的 BundleID、AppID、LicenseFilePath 参数值。
+7. 在 SimpleViewer/AppDelegate.m 文件中，修改 -initBDLive 方法的 BundleID、AppID、LicenseFilePath 参数值。
 
 > 💡 注意  
 > 您需要确保以下事项，否则会出现鉴权失败的问题：

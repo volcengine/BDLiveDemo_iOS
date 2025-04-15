@@ -20,11 +20,7 @@
 
 #import "AppDelegate.h"
 
-#if __has_include(<TTSDKFramework/TTSDKFramework.h>)
-    #import <TTSDKFramework/TTSDKManager.h>
-#elif __has_include(<TTSDK/TTSDKManager.h>)
-    #import <TTSDK/TTSDKManager.h>
-#endif
+#import <BDLive/BDLive.h>
 
 @interface AppDelegate ()
 
@@ -33,21 +29,21 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [self initTTSDK];
+    [self initBDLive];
     return YES;
 }
 
-- (void)initTTSDK {
-    TTSDKConfiguration *configuration = [TTSDKConfiguration defaultConfigurationWithAppID:@"<#AppID#>"];
-    configuration.bundleID = @"<#bundleID#>";
-    configuration.appName = @"PlayerHD";
-    configuration.channel = @"App Store";
-    // 点播
-    configuration.licenseFilePath = [[NSBundle mainBundle] pathForResource:@"<#licenseFileName#>" ofType:@"lic"];
-    [TTSDKManager startWithConfiguration:configuration];
-    // 直播
-    configuration.licenseFilePath = [[NSBundle mainBundle] pathForResource:@"<#licenseFileName#>" ofType:@"lic"];
-    [TTSDKManager startWithConfiguration:configuration];
+
+- (void)initBDLive {
+    BDLiveAuthInfo *authInfo = [[BDLiveAuthInfo alloc] init];
+    authInfo.bizType = BDLiveBizTypeViewer;
+    authInfo.appId = @"<#appID#>";
+    authInfo.vodLicensePath = [[NSBundle mainBundle] pathForResource:@"<#VodLicenseFileName#>" ofType:@"lic"];
+    authInfo.liveLicensePath = [[NSBundle mainBundle] pathForResource:@"<#LiveLicenseFileName#>" ofType:@"lic"];
+
+    [[BDLiveManager sharedInstance] startWithAuthInfo:authInfo complete:^(BOOL allSuccess, NSString * _Nullable warningInfo, NSArray<NSError *> * _Nullable errors) {
+        NSLog(@"BDLive 【allSuccess】 %d \n 【warningInfo】: %@ 【errors】:\n\n%@", allSuccess, warningInfo, errors);
+    }];
 }
 
 - (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
