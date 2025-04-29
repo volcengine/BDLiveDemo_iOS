@@ -98,7 +98,7 @@
 
     self.livePullVC.config.customShoppingCardController = ^(BDLLivePullViewController * _Nonnull viewController, BDLShoppingCardController * _Nonnull shoppingCardController) {
         shoppingCardController.customizeShoppingCardView = ^__kindof BDLBaseView * _Nullable(BDLShoppingCardController * _Nonnull controller, BDLShoppingCardView * _Nonnull shoppingCardView) {
-            shoppingCardView.cardViewTappedBlock = ^(NSString * _Nullable urlStr, BOOL enableFloating) {
+            shoppingCardView.cardViewTappedBlock = ^(NSString * _Nullable urlStr, BOOL enableFloating, BDLCardModel * _Nonnull cardModel) {
                 @strongify(self);
                 if (!self) {
                     return;
@@ -111,7 +111,7 @@
     
     self.livePullVC.config.customFloatingController = ^(BDLLivePullViewController * _Nonnull viewController, BDLFloatingController * _Nonnull floatingController) {
         floatingController.customizeFloatingCardView = ^__kindof BDLBaseView * _Nullable(BDLFloatingController * _Nonnull floatingController, BDLFloatingCardView * _Nonnull view) {
-            view.viewTappedBlock = ^(NSString * _Nullable urlStr, BOOL enableFloating) {
+            view.viewTappedBlock = ^(NSString * _Nullable urlStr, BOOL enableFloating, BDLCardModel * _Nonnull cardModel) {
                 @strongify(self);
                 if (!self) {
                     return;

@@ -158,7 +158,7 @@
     };
     livePullVC.config.customShoppingCardController = ^(BDLLivePullViewController * _Nonnull viewController, BDLShoppingCardController * _Nonnull shoppingCardController) {
         shoppingCardController.customizeShoppingCardView = ^__kindof BDLBaseView * _Nullable(BDLShoppingCardController * _Nonnull controller, BDLShoppingCardView * _Nonnull shoppingCardView) {
-            shoppingCardView.cardViewTappedBlock = ^(NSString * _Nullable urlStr, BOOL enableFloating) {
+            shoppingCardView.cardViewTappedBlock = ^(NSString * _Nullable urlStr, BOOL enableFloating, BDLCardModel * _Nonnull cardModel) {
                 // 在这里实现打开商品页面的逻辑
                 @strongify(self);
                 [self showProductViewController];
@@ -229,7 +229,7 @@
     
     // 自定义完整直播间中的浮窗
     livePullVC.config.customFloatingController = ^(BDLLivePullViewController * _Nonnull viewController, BDLFloatingController * _Nonnull floatingController) {
-        floatingController.openUrlBlock = ^(BDLFloatingController * _Nonnull floatingController, NSURL * _Nonnull url, BOOL isFloatingEnable) {
+        floatingController.onCardClickBlock = ^(BDLFloatingController * _Nonnull floatingController, NSURL * _Nonnull url, BOOL isFloatingEnable, BDLCardModel * _Nonnull cardModel) {
             // 在这里实现打开商品页面的逻辑
             @strongify(self);
             [self showWebViewControllerWithURL:url];
