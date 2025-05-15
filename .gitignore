@@ -1,5 +1,7 @@
 Licenses/
 
+*.log
+ruby/
 *~
 .DS_Store
 Podfile.lock
