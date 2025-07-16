@@ -46,6 +46,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2BFE7A7D2E2795A400C20DC5 /* LiveStreamingRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LiveStreamingRelease.entitlements; sourceTree = "<group>"; };
+		2BFE7A7E2E27963F00C20DC5 /* RecordExtensionRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RecordExtensionRelease.entitlements; sourceTree = "<group>"; };
 		48D1CE3E28C8CFB700B559CB /* LiveStreaming.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiveStreaming.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48D1CE4128C8CFB700B559CB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		48D1CE4228C8CFB700B559CB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 		48D1CE4028C8CFB700B559CB /* LiveStreaming */ = {
 			isa = PBXGroup;
 			children = (
+				2BFE7A7D2E2795A400C20DC5 /* LiveStreamingRelease.entitlements */,
 				48F09F382A2F0FDE00121E90 /* LiveStreaming.entitlements */,
 				48D1CE4128C8CFB700B559CB /* AppDelegate.h */,
 				48D1CE4228C8CFB700B559CB /* AppDelegate.m */,
@@ -153,6 +156,7 @@
 		48F09F2C2A2F0F3800121E90 /* RecordExtension */ = {
 			isa = PBXGroup;
 			children = (
+				2BFE7A7E2E27963F00C20DC5 /* RecordExtensionRelease.entitlements */,
 				48F09F392A2F0FFC00121E90 /* RecordExtension.entitlements */,
 				48F09F2D2A2F0F3800121E90 /* SampleHandler.h */,
 				48F09F2E2A2F0F3800121E90 /* SampleHandler.m */,
@@ -268,9 +272,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-LiveStreaming/Pods-LiveStreaming-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-LiveStreaming/Pods-LiveStreaming-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -285,9 +293,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-LiveStreaming/Pods-LiveStreaming-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-LiveStreaming/Pods-LiveStreaming-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -486,6 +498,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = LiveStreaming/LiveStreaming.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3XMD9D6A65;
@@ -514,7 +527,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.bytedance.videoarch.TTLiveStream;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Wildcard;
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "TTLiveStream-Dev";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "TTLiveStream-AdHoc";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -526,11 +539,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = LiveStreaming/LiveStreaming.entitlements;
+				CODE_SIGN_ENTITLEMENTS = LiveStreaming/LiveStreamingRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3XMD9D6A65;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 53URFX25J4;
 				ENABLE_BITCODE = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LiveStreaming/Info.plist;
@@ -552,9 +567,10 @@
 					"-ld64",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bytedance.videoarch.TTLiveStream;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bytedance.videoarch.TTLiveStream.inhouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "TTLiveStream-Dist";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = BytedanceVideoarchTTLiveStreamInhouseDist;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -595,11 +611,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_ENTITLEMENTS = RecordExtension/RecordExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = RecordExtension/RecordExtensionRelease.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3XMD9D6A65;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 53URFX25J4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RecordExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = RecordExtension;
@@ -611,9 +628,10 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.bytedance.videoarch.TTLiveStream.TTLVRecordExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bytedance.videoarch.TTLiveStream.inhouse.TTLVRecordExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "TTLVRecordExtension Dist";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = VideoarchTTLiveStreamInhouseTTLVRecordExtensionDis;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";

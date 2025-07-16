@@ -177,9 +177,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-FloatingPlayer/Pods-FloatingPlayer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-FloatingPlayer/Pods-FloatingPlayer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -194,9 +198,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-FloatingPlayer/Pods-FloatingPlayer-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-FloatingPlayer/Pods-FloatingPlayer-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -385,6 +393,11 @@
 				DEVELOPMENT_TEAM = 3XMD9D6A65;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FloatingPlayer/Info.plist;
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "用于直播预约提醒能力";
+				INFOPLIST_KEY_NSCameraUsageDescription = "App 需要获取您的相机权限，用于连麦";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "App 需要获取您的麦克风权限，用于连麦";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "App 需要获取您的相册写入权限，用于保存图片到相册";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "App 需要获取您的相册访问权限，用于发送图片评论";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -418,8 +431,14 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3XMD9D6A65;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 53URFX25J4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FloatingPlayer/Info.plist;
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "用于直播预约提醒能力";
+				INFOPLIST_KEY_NSCameraUsageDescription = "App 需要获取您的相机权限，用于连麦";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "App 需要获取您的麦克风权限，用于连麦";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "App 需要获取您的相册写入权限，用于保存图片到相册";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "App 需要获取您的相册访问权限，用于发送图片评论";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -435,9 +454,10 @@
 					"$(inherited)",
 					"-ld64",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bytedance.videoarch.TTLiveStream;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bytedance.videoarch.TTLiveStream.inhouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "TTLiveStream-AdHoc";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = BytedanceVideoarchTTLiveStreamInhouseDist;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
