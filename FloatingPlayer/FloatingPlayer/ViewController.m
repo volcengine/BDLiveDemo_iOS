@@ -97,29 +97,16 @@
     @weakify(self);
 
     self.livePullVC.config.customShoppingCardController = ^(BDLLivePullViewController * _Nonnull viewController, BDLShoppingCardController * _Nonnull shoppingCardController) {
-        shoppingCardController.customizeShoppingCardView = ^__kindof BDLBaseView * _Nullable(BDLShoppingCardController * _Nonnull controller, BDLShoppingCardView * _Nonnull shoppingCardView) {
-            shoppingCardView.cardViewTappedBlock = ^(NSString * _Nullable urlStr, BOOL enableFloating, BDLCardModel * _Nonnull cardModel) {
-                @strongify(self);
-                if (!self) {
-                    return;
-                }
-                [self.livePullVC close:YES];
-            };
-            return shoppingCardView;
+        shoppingCardController.onCardClickBlock = ^(BDLShoppingCardController * _Nonnull controller, NSURL * _Nonnull url, BOOL isFloatingEnable, BDLCardModel * _Nonnull cardModel, BDLShoppingCardClickPosition clickPosition) {
+            @strongify(self);
+            if (!self) {
+                return;
+            }
+            [self.livePullVC close:YES];
         };
     };
     
     self.livePullVC.config.customFloatingController = ^(BDLLivePullViewController * _Nonnull viewController, BDLFloatingController * _Nonnull floatingController) {
-        floatingController.customizeFloatingCardView = ^__kindof BDLBaseView * _Nullable(BDLFloatingController * _Nonnull floatingController, BDLFloatingCardView * _Nonnull view) {
-            view.viewTappedBlock = ^(NSString * _Nullable urlStr, BOOL enableFloating, BDLCardModel * _Nonnull cardModel) {
-                @strongify(self);
-                if (!self) {
-                    return;
-                }
-                [self.livePullVC close:YES];
-            };
-            return view;
-        };
         
         floatingController.customizeUpperAdView = ^__kindof BDLBaseView * _Nullable(BDLFloatingController * _Nonnull floatingController, BDLUpperAdView * _Nonnull view) {
             view.viewTappedBlock = ^(NSString * _Nullable urlStr, BOOL enableFloating) {

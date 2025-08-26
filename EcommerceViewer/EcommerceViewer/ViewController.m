@@ -157,13 +157,12 @@
         return popupTopCommentView;
     };
     livePullVC.config.customShoppingCardController = ^(BDLLivePullViewController * _Nonnull viewController, BDLShoppingCardController * _Nonnull shoppingCardController) {
+        shoppingCardController.onCardClickBlock = ^(BDLShoppingCardController * _Nonnull controller, NSURL * _Nonnull url, BOOL isFloatingEnable, BDLCardModel * _Nonnull cardModel, BDLShoppingCardClickPosition clickPosition) {
+            // 在这里实现打开商品页面的逻辑
+            @strongify(self);
+            [self showProductViewController];
+        };
         shoppingCardController.customizeShoppingCardView = ^__kindof BDLBaseView * _Nullable(BDLShoppingCardController * _Nonnull controller, BDLShoppingCardView * _Nonnull shoppingCardView) {
-            shoppingCardView.cardViewTappedBlock = ^(NSString * _Nullable urlStr, BOOL enableFloating, BDLCardModel * _Nonnull cardModel) {
-                // 在这里实现打开商品页面的逻辑
-                @strongify(self);
-                [self showProductViewController];
-            };
-
             // 自定义商品卡片高度
             [shoppingCardView mas_updateConstraints:^(MASConstraintMaker *make) {
                 // 这里更新高度为屏幕高度的3/4
@@ -229,11 +228,6 @@
     
     // 自定义完整直播间中的浮窗
     livePullVC.config.customFloatingController = ^(BDLLivePullViewController * _Nonnull viewController, BDLFloatingController * _Nonnull floatingController) {
-        floatingController.onCardClickBlock = ^(BDLFloatingController * _Nonnull floatingController, NSURL * _Nonnull url, BOOL isFloatingEnable, BDLCardModel * _Nonnull cardModel) {
-            // 在这里实现打开商品页面的逻辑
-            @strongify(self);
-            [self showWebViewControllerWithURL:url];
-        };
         // 自定义互动工具浮窗 这个view涉及拖动，所以设置了view.frame调整其位置，而非自动布局。
         floatingController.customizeInteractiveToolContainerView = ^__kindof UIStackView * _Nullable(BDLFloatingController * _Nonnull floatingController, UIStackView * _Nonnull view) {
             CGRect frame = view.frame;
