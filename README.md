@@ -76,3 +76,7 @@ pod install
 [产品动态](https://www.volcengine.com/docs/6669/101243)  
 [集成 SDK](https://www.volcengine.com/docs/6669/101259)  
 [接口说明](https://www.volcengine.com/docs/6669/122548)  
+
+## Security and privacy
+This project takes security seriously. 
+For vulnerability reporting and supported versions, see [SECURITY.md](SECURITY.md)
